@@ -18,6 +18,7 @@ jobs:
         uses: typst-community/setup-typst@v4
       - name: Compile documents
         run: |
+          sudo chmod +x ./build.sh
           ./build.sh
       - name: Upload PDFs
         uses: actions/upload-artifact@v4
