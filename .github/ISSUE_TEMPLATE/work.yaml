@@ -1,7 +1,7 @@
 name: Deklaracja opracowania pytania
 description: Zadeklaruj pytanie, które chcesz opracować
 title: '[Opracowanie]: (Katedra) (Numer pytania) Treść pytania'
-labels: ['feature']
+labels: ['Opracowanie']
 body:
   - type: markdown
     attributes:
