@@ -7,7 +7,7 @@
   polish: true,
   footer-text: "",
   subject: "Egzamin Inżynierski",
-  version: "0.0.1"
+  version: "0.0.0"
 )
 
 #let target = sys.inputs.at("target", default: "")
