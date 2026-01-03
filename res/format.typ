@@ -179,7 +179,7 @@
   pagebreak()
 
   // Table of contents.
-  outline(depth: 3)
+  outline(depth: 2)
 
   // pagebreak()
 

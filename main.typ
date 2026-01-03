@@ -22,6 +22,8 @@
   version: "v0.0.0"
 )
 
+#show heading.where(level: 4): set heading(numbering: none)
+
 = Pytania kierunkowe
 
 #include "pytania/ogolne/000-zlozonosc-czasowa-i-pamieciowa.typ"
