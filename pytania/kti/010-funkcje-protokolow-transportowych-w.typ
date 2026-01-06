@@ -46,10 +46,10 @@ Eliminuje Head-of-Line Blocking (HOLB). W przypadku awarii jednego z połączeń
 *QUIC (Quick UDP Internet Connections)* to protokół transportowy opracowany przez Google, który działa na bazie UDP i jest zaprojektowany do szybkiego i bezpie
 cznego przesyłania danych w internecie. QUIC integruje funkcje takie jak szyfrowanie, kontrola przepływu i wielościeżkowość, co pozwala na redukcję opóźnień i poprawę wydajności w porównaniu do tradycyjnych protokołów transportowych, takich jak TCP.
 
-*0-RTT / 1-RTT (Zeor/One Round Trip Time)* - QUIC umożliwia nawiązywanie połączeń z minimalnym opóźnieniem, co jest szczególnie korzystne dla aplikacji wymagających szybkiego dostępu do zasobów sieciowych.
+*0-RTT(Zero Round Trip Time)* - W tradycyjnym stosie (TCP + TLS) potrzeba kilku "rund" (Round Trips) komunikacji, zanim zacznie się właściwy transfer danych.
+- QUIC łączy nawiązywanie połączenia transportowego i szyfrowania w jeden proces.
+- Jeśli klient już wcześniej łączył się z serwerem, może wysłać dane już w pierwszym pakiecie (0-RTT), co drastycznie przyspiesza ładowanie stron.
 
 *Eliminacja Head-of-Line Blocking (HOLB)* - QUIC pozwala na niezależne przesyłanie wielu strumieni danych w ramach jednego połączenia, co zapobiega blokowaniu się całego połączenia w przypadku utraty pojedynczego pakietu.
 
 *Connection Migration* - QUIC wspiera migrację połączeń, co pozwala na utrzymanie aktywnego połączenia nawet przy zmianie adresu IP, na przykład podczas przełączania się między sieciami Wi-Fi i komórkowymi.
-
-*Wbudowane szyfrowanie* - QUIC integruje mechanizmy szyfrowania na poziomie protokołu transportowego, co zwiększa bezpieczeństwo transmisji danych bez konieczności stosowania dodatkowych warstw zabezpieczeń, takich jak TLS.
