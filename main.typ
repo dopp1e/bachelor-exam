@@ -89,4 +89,4 @@
   include "profil-kio.typ"
 }
 
-#bibliography("res/bibliography.bib")
+#bibliography("res/bibliography.bib", style: "ieee")
