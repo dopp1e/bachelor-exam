@@ -16,7 +16,9 @@ Jest to rodzaj kryptografii w której szyfrowanie komunikacji odbywa się przy u
 Klucz publiczny nosi tą nazwę ze względu na to, że jest on dostępny dla osób postronnych.
 Natomiast klucz prywatny posiada właściciel klucza prywatnego który rozdaje ten klucz publiczny.
 
-TODO: opisanie działania matematycznego kluczy?
+Bezpieczeństwo większości schematów asymetrycznych (np. RSA) opiera się na wygenerowaniu dwóch dużych liczb pierwszych $p$ i $q$ oraz użyciu ich iloczynu $n = p \cdot q$ jako elementu klucza publicznego.
+Szyfrowanie i podpisywanie jest łatwe przy znajomości odpowiednich parametrów, zaś odtworzenie $p$ i $q$ z $n$ jest trudne — to przykład funkcji jednostronnej z tzw. „trapdoorem”.
+Trudność sprowadza się do faktoryzacji $n$; najlepsze klasyczne algorytmy są subeksponencjalne (np. GNFS), a komputery kwantowe (algorytm Shora) mogłyby to zmienić.
 
 Dzięki właściwościom matematycznym kluczy możliwe jest stosowanie jednego z kluczy w zestawie (prywatny + publiczny) w celu zaszyfrowania pewnej wiadomości tak, aby tylko drugi klucz mógł ową wiadomość odszyfrować.
 Może to też posłużyć za poświadczenie autorstwa (zakładając, że tylko jedna osoba ma dostęp do klucza prywatnego, to fakt że da się odszyfrować wiadomość konkretnie jej kluczem prywatnym stanowi dowód bycia osobą szyfrującą, tj. posiada dostęp do klucza prywatnego).
@@ -126,10 +128,10 @@ Weryfikacja certyfikatów w trakcie nawiązywania bezpiecznego połączenia (np.
 
 *Dlaczego niektóre certyfikaty są droższe niż inne?*
 
-/ Podstawowa przyczyna: Głównym powodem, dla którego niektóre certyfikaty są droższe niż inne, jest stopień weryfikacji i zaufania, jakie oferują.
-/ Rodzaje weryfikacji: Certyfikaty, które wymagają bardziej szczegółowej weryfikacji tożsamości i innych informacji, są zazwyczaj droższe. Przykłady obejmują certyfikaty Extended Validation (EV), które wymagają dokładniejszego procesu weryfikacji.
-/ Poziom Zaufania: Droższe certyfikaty często zapewniają wyższy poziom zaufania, co jest kluczowe dla organizacji prowadzących transakcje lub działalność wymagającą wysokiego stopnia bezpieczeństwa i wiarygodności.
-/ Dodatkowe funkcje: Niektóre certyfikaty mogą oferować dodatkowe funkcje, takie jak lepsze wsparcie, ubezpieczenie, a take rozszerzoną kompatybilność z różnymi przeglądarkami i systemami
+/ Podstawowa przyczyna: Głównym powodem, dla którego niektóre certyfikaty są droższe niż inne, jest stopień weryfikacji jaki jest wymagany, aby je uzyskać.
+/ Rodzaje weryfikacji: Certyfikaty, które wymagają bardziej szczegółowej weryfikacji tożsamości i innych informacji, są zazwyczaj droższe. Przykłady obejmują certyfikaty Extended Validation (EV), które wymagają dokładniejszego procesu weryfikacji (np. podania danych firmy, dla której wydawany jest certyfikat).
+// / Poziom Zaufania: Droższe certyfikaty często zapewniają wyższy poziom zaufania, co jest kluczowe dla organizacji prowadzących transakcje lub działalność wymagającą wysokiego stopnia bezpieczeństwa i wiarygodności.
+// / Dodatkowe funkcje: Niektóre certyfikaty mogą oferować dodatkowe funkcje, takie jak lepsze wsparcie, ubezpieczenie, a take rozszerzoną kompatybilność z różnymi przeglądarkami i systemami.
 
 *Czy można nie korzystać z płatnych certyfikatów, np. w swojej organizacji?*
 
@@ -141,6 +143,6 @@ Weryfikacja certyfikatów w trakcie nawiązywania bezpiecznego połączenia (np.
 === Możliwe dopytania
 
 - Czy certyfikaty są płatne, dlaczego niektóre certyfikaty są droższe niż inne? (Manus)
-Skąd sie biorą zaufane urzędy certyfikacji na świezo kupionym komputerze? (Tytus Pikies) (odp: Są dołączane razem z systemem operacyjnym i użytkowanym oprogramowaniem, np. przeglądarką.)
-W jaki sposób przechowuje się podpis elektroniczny? (Daciuk) (TODO?)
-Ile jest root CA na świecie? (Gumiński) (odp: Trudno stwierdzić pewnie kilkadziesiąt, może niskie kilkaset. Mozilla na dzień 07.01.2026 dodaje w zestawie z przeglądarką 181 certyfikatów. @CAIncludedCertificates)
+- Skąd sie biorą zaufane urzędy certyfikacji na świezo kupionym komputerze? (Tytus Pikies) (odp: Są dołączane razem z systemem operacyjnym i użytkowanym oprogramowaniem, np. przeglądarką.)
+- W jaki sposób przechowuje się podpis elektroniczny? (Daciuk) (TODO?)
+- Ile jest root CA na świecie? (Gumiński) (odp: Trudno stwierdzić pewnie kilkadziesiąt, może niskie kilkaset. Mozilla na dzień 07.01.2026 dodaje w zestawie z przeglądarką 181 certyfikatów. @CAIncludedCertificates)
