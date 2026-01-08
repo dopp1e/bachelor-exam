@@ -30,6 +30,7 @@ W przypadku pakietów, które nie zmieszczą się w kolejce, można stosować r�
 === Zarządzanie pasmem
 Zarządzanie pasmem to proces kontrolowania i optymalizacji dostępnej przepustowości sieci, aby zapewnić sprawiedliwy podział zasobów.
 
+Przykładowe metody zarządzania pasmem to:
 - *Limitowanie pasma* - pozwala na ograniczanie przepustowości pasma dla konkretnych urządzeń/aplikacji, ogólnie strumieni.
 - *Token Bucket* - to metoda kształtowania ruchu sieciowego, która polega na "wpadaniu" tokenów (żetonów) do ograniczonego pojemnościowo kubełka w stałym tempie. Każdy pakiet danych lub jednostka "pobiera" jeden token, aby zostać przesłany; brak tokenów wstrzymuje ruch lub powoduje jego odrzucenie/opóźnienie, pozwalając na chwilowe "bursty", o ile kubełek jest pełny. Działa to jak bufor, który gromadzi rezerwę na chwilowe skoki obciążenia, zapewniając stabilne średnie natężenie przepływu. Dodatkowo istnieje wariant Hierarchical Token Bucket w którym wiadra mogą mieć rodzciów czy dzieci, który dodatkowo pozwala na "pożyczanie" tokenów od rodzica.
 - *Band steering* - w sieciach bezprzewodowych można przenosić ruch sieciowy między pasmami (np. 2.4GHz -> 5GHz) w celu uzyskania lepszej jakości usług.
