@@ -18,37 +18,37 @@ Routing można uznać za jedną z metod aktynwego zarządania ruchem w sieciach,
 Kolejkowanie pakietów pozwala na zarządzanie buforem urządzeń sieciowych, co ma na celu zapobiec przeciążeniom i zapewniać jakość usług sieciowych.
 
 Wybrane mechanizmy kolejkowania pakietów:
-- *FIFO* _(ang. First In First Out)_.
-- *Priority Queueing* - algorytmy kolejkowania operujące na koncepcie priorytetów.
+- *FIFO* _(ang. First In First Out)_;
+- *Priority Queueing* - algorytmy kolejkowania operujące na koncepcie priorytetów;
 - *Weighted Fair Queuing* - każda klasa ruchu otrzymuje proporcjonalny podział pasma.
 
 W przypadku pakietów, które nie zmieszczą się w kolejce, można stosować różne strategie odrzucania:
-- *Drop Tail* - odrzucanie pakietów, gdy kolejka jest pełna.
-- *AQM (Active Queue Management)* - aktywne zarządzanie kolejkami, które pozwala na ograniczenie opóźnień pakietów poprzez redukcję wielkości kolejki.
+- *Drop Tail* - odrzucanie pakietów, gdy kolejka jest pełna;
+- *AQM (Active Queue Management)* - aktywne zarządzanie kolejkami, które pozwala na ograniczenie opóźnień pakietów poprzez redukcję wielkości kolejki;
 - *RED (Random Early Detection)* - wczesne losowe odrzucanie pakietów zanim bufor się zapełni. Działa jak filtr dolnoprzepustowy, tłumiąc wybuchy wielkości kolejki. Chwilowe przeciążenia są rozwiązywane poprzez zwiększenie długości kolejek, a długotrwałe przeciążenia poprzez powiadamianie losowych połączeń o przeciążeniu (ECN lub odrzucanie losowych pakietów).
 
 === Zarządzanie pasmem
 Zarządzanie pasmem to proces kontrolowania i optymalizacji dostępnej przepustowości sieci, aby zapewnić sprawiedliwy podział zasobów.
 
 Przykładowe metody zarządzania pasmem to:
-- *Limitowanie pasma* - pozwala na ograniczanie przepustowości pasma dla konkretnych urządzeń/aplikacji, ogólnie strumieni.
-- *Token Bucket* - to metoda kształtowania ruchu sieciowego, która polega na "wpadaniu" tokenów (żetonów) do ograniczonego pojemnościowo kubełka w stałym tempie. Każdy pakiet danych lub jednostka "pobiera" jeden token, aby zostać przesłany; brak tokenów wstrzymuje ruch lub powoduje jego odrzucenie/opóźnienie, pozwalając na chwilowe "bursty", o ile kubełek jest pełny. Działa to jak bufor, który gromadzi rezerwę na chwilowe skoki obciążenia, zapewniając stabilne średnie natężenie przepływu. Dodatkowo istnieje wariant Hierarchical Token Bucket w którym wiadra mogą mieć rodzciów czy dzieci, który dodatkowo pozwala na "pożyczanie" tokenów od rodzica.
+- *Limitowanie pasma* - pozwala na ograniczanie przepustowości pasma dla konkretnych urządzeń/aplikacji, ogólnie strumieni;
+- *Token Bucket* - to metoda kształtowania ruchu sieciowego, która polega na "wpadaniu" tokenów (żetonów) do ograniczonego pojemnościowo kubełka w stałym tempie. Każdy pakiet danych lub jednostka "pobiera" jeden token, aby zostać przesłany; brak tokenów wstrzymuje ruch lub powoduje jego odrzucenie/opóźnienie, pozwalając na chwilowe "bursty", o ile kubełek jest pełny. Działa to jak bufor, który gromadzi rezerwę na chwilowe skoki obciążenia, zapewniając stabilne średnie natężenie przepływu. Dodatkowo istnieje wariant Hierarchical Token Bucket w którym wiadra mogą mieć rodzciów czy dzieci, który dodatkowo pozwala na "pożyczanie" tokenów od rodzica;
 - *Band steering* - w sieciach bezprzewodowych można przenosić ruch sieciowy między pasmami (np. 2.4GHz -> 5GHz) w celu uzyskania lepszej jakości usług.
 
 === Congestion control
 Mechanizm protokołu TCP dostosowywujący prędkość transmisji danych w zależności od przepustowości sieci. Operuje na tym, że w przypadku przeciążenia sieci kolejki buforów rosną co zwiększa opóźnienia i powoduje utratę pakietów. Nadawca może samodzielnie wykrywać przeciązenia i dostosowywać swoją prędkość.
 
 Kluczowe pojęcia dla congestion control:
-- *Congestion Window* - zmienna nadawcy określająca maksymalną liczbę niepotwierdzony bajtów "w locie".
-- *Slow Start* - przesyłanie pakietów zaczyna się od niższej wartości congestion windows i zwiększa się wykładniczo..
-- *Fast Recovery* - powolne zmniejszanie wartości congestion window, tak aby zaczynać od wyższej wartosci, a nie powtarzać slow start.
+- *Congestion Window* - zmienna nadawcy określająca maksymalną liczbę niepotwierdzony bajtów "w locie";
+- *Slow Start* - przesyłanie pakietów zaczyna się od niższej wartości congestion windows i zwiększa się wykładniczo;
+- *Fast Recovery* - powolne zmniejszanie wartości congestion window, tak aby zaczynać od wyższej wartosci, a nie powtarzać slow start;
 - *ECN (Explicit Congestion Notification)* - rozszerzenie do IP pozwalające na bezpośrednią sygnalizację wystąpienia przeciążenia. Zamiast odrzucania pakietów (jak w tradycyjnym TCP/IP), ECN ustawia znacznik w nagłówku IP informując o przeciążeniu, dzięki czemu pakiety nie muszą być odrzucane by uzyskać zachowanie kontroli przeciążenia.
 === Quality of Service
 Quality of service to całość charakterystyk usługi telekomunikacyjnej stanowiących podstawę do wypełnienia wyrażonych i zaspokajanych potrzeb użytkownika tej usługi.
 
 Mechanizmy QoS:
-- *IPv4 TOS (type of service)* - pole w nagłówku, które kiedyś definiowało priorytet pakietu. Zastąpione później przez Differentiated Services Code Point (DSCP).
-- *DiffServ* - architektura sieci przypisujące strumienie do danych klas usług. Działa na zasadzie oznaczania pakietów w nagłówku (6-bitowy DSCP w polu DS). Każda klasa ma swój PHB (Per Hop Behavior): Default Forwarding (best effort), Expedited Forwarding (najwyższy priorytet, niska utrata/opóźnienie), Assured Forwarding (12 klas z priorytetami i prawdopodobieństwem odrzucenia), Class Selector (8 klas dla kompatybilności wstecznej).
+- *IPv4 TOS (type of service)* - pole w nagłówku, które kiedyś definiowało priorytet pakietu. Zastąpione później przez Differentiated Services Code Point (DSCP);
+- *DiffServ* - architektura sieci przypisujące strumienie do danych klas usług. Działa na zasadzie oznaczania pakietów w nagłówku (6-bitowy DSCP w polu DS). Każda klasa ma swój PHB (Per Hop Behavior): Default Forwarding (best effort), Expedited Forwarding (najwyższy priorytet, niska utrata/opóźnienie), Assured Forwarding (12 klas z priorytetami i prawdopodobieństwem odrzucenia), Class Selector (8 klas dla kompatybilności wstecznej);
 - *IntServ* - architektura sieci przypisujące zasoby dla konkretnych strumieni. Wykorzystuje protokół RSVP (Resource Reservation Protocol) do rezerwacji zasobów. Odbiorcy wysyłają PATH definiujący wymagane zasoby (Tspec), routery uczą się ścieżki, następnie odbiorcy odsyłają RESV wzdłuż tej ścieżki. Rezerwacje muszą być odświeżane (np. co 30 sekund). Ograniczona adopcja ze względu na wymagania dotyczące przechowywania stanu dla każdego przepływu.
 
 #table(
