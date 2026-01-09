@@ -4,9 +4,100 @@
   q: "Architektury Modelu Odniesienia OSI oraz TCP/IP; podobieństwa i różnice."
 )
 
-#image("../../obrazki/TCP-IP-vs-ISO-OSI.webp")
+#set text(lang: "pl", font: "linux libertine", size: 9pt)
 
-To nie jest tak, że w TCP/IP warstwy fizycznej nie ma tylko warstwa dostępu do sieci/łącza danych realizuje również jej funkcje.
+#table(
+  columns: (1fr, 1fr),
+  stroke: 0.5pt + gray,
+  inset: 8pt,
+  fill: (col, row) => if row == 0 { gray.lighten(80%) } else { white },
+  
+  [*ISO-OSI*], [*TCP-IP*],
+
+  [
+    *Warstwa aplikacji*
+    - obsługa użytkownika
+    - transmisja plików
+    - dostęp do baz danych
+    - zarządzanie transmisją
+    - rozsyłanie poczty
+    
+    *Warstwa prezentacji*
+    - przekształcanie danych użytkownika do danych w postaci stosowanej w sieci
+    - zabezpieczenia kryptograficzne
+    - kompresja danych
+    
+    *Warstwa sesji*
+    - nawiązywanie i rozwiązywanie sesji
+    - dialog między procesami
+    - sockety
+  ],
+  [
+    *Warstwa aplikacji*
+    - procesy i protokoły użytkowe (np. HTTP, SMTP, FTP)
+    - funkcje realizowane są w stacjach końcowych a nie specjalnie wydzielonych pośredniczących (jak w OSI)
+    - jednostka danych: *strumienie (TCP), wiadomości (UDP)*
+  ],
+
+  [
+    *Warstwa transportowa*
+    - niezawodny i przezroczysty przekaz danych end-to-end
+    - wykrywanie i retransmisja błędnych danych
+    - sterowanie przepływem
+  ],
+  [
+    *Warstwa transportowa*
+    - protokoły TCP, UDP
+    - jednostki danych - *segmenty (TCP), pakiety (UDP)*
+    - *NACHODZI NA WARSTWĘ SESJI*
+  ],
+  [
+    *Warstwa sieciowa*
+    - routing
+    - ochrona sieci przed przeciążeniami
+    - łączenie heterogenicznych sieci
+    - segmentacja/resegmentacja pakietów
+    - przezroczysty przekaz danych (brak ingerencji)
+    - wyróżnia się podwarstwę współpracy międzysieciowej
+  ],
+  [
+    *Warstwa międzysieciowa*
+    - enkapsulacja datagramów w ramki
+    - odwzorowywanie adresów IP na fizyczne
+    - przesyłanie pakietów/segmentów
+    - defragmentacja pakietów/segmentów
+    - protokół pomocniczy ICMP
+    - protokół IP
+  ],
+  [
+    *Warstwa łącza danych*
+    - tworzenie ramek
+    - niezawodny przekaz ramek kanałem cyfrowym
+    - sterowanie dostępem do medium komunikacyjnego
+    - dzieli się na podwarstwy LLC (podwarstwa kanału logicznego, konwersja warstwa sieciowa <-> dany protokół typu Ethernet, WiFi) i MAC (dostęp do medium)
+  ],
+  [
+    *Warstwa dostępu do sieci*
+    - komutacja pakietów
+    - bezpołączeniowość
+    - jednostka danych: *ramki*
+    - rozwiązania np. Ethernet, WiFi, SONET
+    - *NACHODZI NA WARSTWĘ SIECIOWĄ*
+  ],
+
+  [
+    *Fizyczna*
+    - przekaz ciągów bitów między stacjami
+    - dostosowanie postaci sygnałów do właściwości medium (np. czy full-duplex, techniki modulacji)
+    - dzieli się na podwarstwy PHY (protokół warstwy fizycznej) i PMD (podwarstwa dopasowania do medium fizycznego)
+    - np. 100BaseTX
+  ],
+  [
+    *Fizyczna* (nie ma tej warstwy w TCP). To nie jest tak, że w TCP/IP warstwy fizycznej nie ma tylko warstwa dostępu do sieci/łącza danych realizuje również jej funkcje.
+  ]
+)
+
+
 
 === Podobieństwa między modelami
 - *Oparcie na idei protokolów warstwowych* – oba modele dzielą komunikację sieciową na warstwy, z których każda ma określone funkcje i zadania, co umożliwia modułowe podejście do projektowania i implementacji.
@@ -16,10 +107,10 @@ To nie jest tak, że w TCP/IP warstwy fizycznej nie ma tylko warstwa dostępu do
 === Różnice między modelami
 - *Cel powstania*:
   - ISO-OSI: Model odniesienia stworzony do projektowania sieci, a nie jako opis konkretnego istniejącego rozwiązania. Powstał przed implementacją odpowiadających mu protokołów, dlatego zawiera wiele elementów niewykorzystywanych w praktyce.
-  - TCP/IP: Model protokołów wywodzący się z ewolucji sieci ARPANET, opisujący konkretne rozwiązanie stosowane w Internecie.ddd
+  - TCP/IP: Model protokołów wywodzący się z ewolucji sieci ARPANET, opisujący konkretne rozwiązanie stosowane w Internecie.
 - *Zastosowanie*:
   - ISO-OSI: Jest bardziej uniwersalny i może być używany do opisu różnych architektur sieciowych.
-  - TCP/IP: Ograniczony do opisu sieci bazujących na tym protokole.
+  - TCP/IP: Ograniczony do opisu sieci bazujących na tych protokołach.
 - *Ewolucja i zmiany*:
   - ISO-OSI: Pozostaje teoretycznym modelem bez bezpośredniego wpływu na rozwój technologii.
   - TCP/IP: Rozwija się w ścisłej korelacji z potrzebami Internetu.
@@ -30,9 +121,6 @@ To nie jest tak, że w TCP/IP warstwy fizycznej nie ma tylko warstwa dostępu do
 - *Architektura vs model*:
   - ISO-OSI: Jest teoretycznym modelem opisującym funkcje poszczególnych warstw, ale nie definiuje konkretnych protokołów.
   - TCP/IP: Jest architekturą sieci, która określa konkretne protokoły w każdej warstwie.
-- *Tryby połączeniowe w warstwie transportowej:*
-  - ISO-OSI: Definiuje jedynie tryb połączeniowy w warstwie transportowej(znajduje tutaj różne informacje fajnie byłoby jakby ktoś to sprawdził, bo ja już nie jestem pewien).
-  - TCP/IP: Obsługuje zarówno tryb połączeniowy (TCP), jak i bezpołączeniowy (UDP)
 - *Tryby połączeniowe w warstwie sieciowej:*
   - ISO-OSI: Obsługuje zarówno tryb połączeniowy, jak i bezpołączeniowy w warstwie sieciowej.
   - TCP/IP: Warstwa sieciowa (IP) jest bezpołączeniowa.
