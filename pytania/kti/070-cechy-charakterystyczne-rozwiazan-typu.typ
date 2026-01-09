@@ -4,7 +4,7 @@
   q: "Cechy charakterystyczne rozwiązań typu Time Series Database i ich zastosowania w systemach monitorowania sieci."
 )
 
-TSDB to kategoria baz danych zoptymalizowana pod kątem przechowywania i analizy danych szeregów czasowych. TSDB umożliwia przechowywanie nielimitowanych ilości danych historycznych i oferuje zawansowane funkcje analityczne oraz agregacje.
+TSDB to kategoria baz danych zoptymalizowana pod kątem przechowywania i analizy danych szeregów czasowych. Umożliwia przechowywanie nielimitowanych ilości danych historycznych i oferuje zawansowane funkcje analityczne oraz agregacje.
 - Przechowuje dane z sygnaturami czasowymi w sposób równomierny (z dowolnymi interwałami czasowymi między danymi).
 - Jest skalowalna i wspiera zawansowane zapytania takie jak analizy trendów przewidywanie i porównania okresów.
 
@@ -19,7 +19,7 @@ TSDB to kategoria baz danych zoptymalizowana pod kątem przechowywania i analizy
 - *Usuwanie duplikatów* - W przypadku pojawienia się tych samych danych z tymi samymi znacznikami czasowymi, TSDB często oferują mechanizmy do wykrywania i usuwania duplikatów, co pomaga w utrzymaniu integralności danych.
 
 === Zastosowania
-Jako główne zastosowanie to raczej chodzi o możliwość agregacji danych i zapominania z czasem. Są to bazy danych używane do przechowywania danych z monitoringu sieci, aplikacji, infrastruktury IT, IoT (Internet of Things) które generują bardzo duże ilości danych w krótkim czasie, a ten mechanizm pozwala na efektywne zarządzanie tymi danymi. Reszta zastosowań pasuje również do innych baz danych.
+Jako główne zastosowanie to możliwość agregacji danych i zapominania z czasem. Są to bazy danych używane do przechowywania danych z monitoringu sieci, aplikacji, infrastruktury IT, IoT (Internet of Things) które generują bardzo duże ilości danych w krótkim czasie, a ten mechanizm pozwala na efektywne zarządzanie tymi danymi. Reszta zastosowań pasuje również do innych baz danych.
 - *Monitorowanie wydajności sieci* - dzięki przechowywaniu metryk takich jak przepustowość, opóźnienia, straty pakietów możemy szybko wykryć i zdiagnozować problemy z siecią.
 - *Analiza trendów i planowanie wydajności* - analiza historycznych danych pozwala na identyfikację wzorców i trendów, co pomaga w planowaniu zasobów i optymalizacji wydajności sieci.
 - *Tworzenie alarmnów i ostrzeżeń* - na podstawie zdefiniowanych progów i wzorców można generować alarmy w przypadku wykrycia anomalii lub przekroczenia określonych wartości.
