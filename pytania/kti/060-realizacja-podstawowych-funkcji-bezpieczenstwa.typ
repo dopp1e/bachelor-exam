@@ -34,3 +34,9 @@ Obejmuje faktyczne przesyłanie danych multimedialnych, takich jak audio, wideo 
   - Zamiast HMAC można użyć podpisu cyfrowego (np. RSA, DSA) do zapewnienia integralności i niezaprzeczalności, lecz jest to wolniejsze, a wydajność jest kluczowa w transmisji multimedialnej w czasie rzeczywistym.
 - osobny kanał służący wymianie kluczy ze względu na dużą ilość przesyłanych wiadomości w audio/wideo istnieje potrzeba częstej wymiany kluczy szyfrowania (nowe klucze są tworzone na podstawie master key stworzonego na początku).
 - nie zapewnia niezaprzeczalności
+
+Istnieje jeszcze możliwość użycia *ZRTP (Z Real-time Transport Protocol)*, który zapewnia szyfrowanie end-to-end. Działa to w następujący sposób:
+- Wykorzystuje protokół *Diffie-Hellman* do bezpiecznej wymiany kluczy między dwoma końcowymi punktami komunikacji bez potrzeby użycia zaufanego trzeciego serwera.
+- Klucz jest następnie używany do zabezpieczenia transmisji SRTP (generowane klucze asymetryczne są tymczasowe generowanie i wymieniane dla każdej sesji komunikacyjnej, co zapewnia odporność na ataki MiTM).
+- Może być wykorzystany z dowolnym protokołem sygnalizacyjnym (np. SIP, H.323).
+- Niezależny od warstwy sygnalizacji, ponieważ cała wymiana klucza / negocjacje odbywają zachodzą w strumieniu RTP.
