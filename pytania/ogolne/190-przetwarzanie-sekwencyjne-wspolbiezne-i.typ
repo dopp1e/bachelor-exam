@@ -5,11 +5,11 @@
   q: "Przetwarzanie sekwencyjne, współbieżne i równoległe."
 )
 
-W tym zadaniu chodzi zarówno o procesy i wątki, oba mogą być przetwarzane zarówno współbieżnie i równolegle. Należy się skupić na pewnym abstrakcyjnym zadaniu.
+Mowa tu zarówno o procesach i wątkach, oba mogą być przetwarzane zarówno współbieżnie i równolegle. Należy się skupić na pewnym abstrakcyjnym zadaniu.
 
 === Przetwarzanie sekwencyjne
 
-Przetwarzanie sekwencyjne to wykonywanie operacji (naszego abstrakcyjnego zadania) jedna po drugiej, w określonej kolejności, gdzie każdy krok musi zostać ukończony zanim rozpocznie się kolejny.
+Przetwarzanie sekwencyjne to wykonywanie operacji jedna po drugiej, w określonej kolejności, gdzie każdy krok musi zostać ukończony zanim rozpocznie się kolejny.
 
 Aspekty przetwarzania sekwencyjnego:
 - W danym momencie jest wykonywane tylko jedno zadanie,
@@ -26,8 +26,8 @@ Aspekty przetwarzania sekwencyjnego:
 === Przetwarzanie współbieżne
 
 Jest to przetwarzanie w którym może być robione kilka zadań jednocześnie w taki sposób że są one wykonywane naprzemiennie.
-Jednostka zajmująca się więc abstrakcyjnym zadaniem jest w stanie dowolnie zaczynać, przerywać, wznawiać, oraz kończyć części zadania w zależności od potrzeby czy możliwości.
-Wtedy te zadania współdzielą zasób jakim jest czas, w kontekście programowym jest to *czas pracy procesora*.
+Jednostka zajmująca się zadaniem jest w stanie dowolnie zaczynać, przerywać, wznawiać, oraz kończyć części zadania w zależności od potrzeby czy możliwości.
+Współdzielonym zasobem jest czas, w kontekście programowym nazywanym *czasem pracy procesora*.
 
 Aspekty przetwarzania współbieżnego:
 - Procesor przełącza się między zadaniami sprawiając wrażenie że zadania są wykonywane jednocześnie,
@@ -45,7 +45,7 @@ Aspekty przetwarzania współbieżnego:
 
 === Przetwarzanie równoległe
 
-Przetwarzanie równoległe polega na tym że wiele zadań jest wykonywanych równocześnie, w tym samym czasie.
+Przetwarzanie równoległe polega na tym że wiele zadań jest wykonywanych równocześnie.
 
 Aspekty przetwarzania równoległego:
 - Równoległość wymaga odpowiedniego zarządzania zasobami aby uniknąć problemów z synchronizacją,
@@ -92,9 +92,12 @@ Aspekty przetwarzania równoległego:
     [Kilka zadań przetwarzanych równocześnie.],
 
     [*Wykonywanie \ na wielu rdzeniach*], 
-    [Niemożliwe, wszystko dzieje się na jednym rdzeniu.], 
-    [Niemożliwe, wiele zadań jest realizowanych na jednym rdzeniu.], 
-    [Możliwe, wiele zadań może być przetwarzane na różnych rdzeniach / procesorach.],
+    // [Niemożliwe, wszystko dzieje się na jednym rdzeniu.], 
+    // [Niemożliwe, wiele zadań jest realizowanych na jednym rdzeniu.], 
+    // [Możliwe, wiele zadań może być przetwarzane na różnych rdzeniach / procesorach.],
+    [Nie], 
+    [Nie], 
+    [Tak],
 
     [*Złożoność \ implementacji*], 
     [Niska.], 
