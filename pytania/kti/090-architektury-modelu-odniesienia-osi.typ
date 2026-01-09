@@ -102,7 +102,7 @@
 === Podobieństwa między modelami
 - *Oparcie na idei protokolów warstwowych* – oba modele dzielą komunikację sieciową na warstwy, z których każda ma określone funkcje i zadania, co umożliwia modułowe podejście do projektowania i implementacji.
 - *Orientacja warst powyżej transportowej na aplikacje* - w obu modelach warstwy powyżej transportowej (warstwa sesji, prezentacji i aplikacji w OSI oraz warstwa aplikacji w TCP/IP) koncentrują się na dostarczaniu usług bezpośrednio użytkownikowi końcowemu.
-- *Zapewnienie dwupunktowej komunikacji na warstwach poniżej transportowej* – zarówno OSI, jak i TCP/IP dążą do umożkliwienia niezawodnej komunikacji między procesami na różnych użądzeniach za pomocą warstw niższego poziomu.
+- *Zapewnienie dwupunktowej komunikacji na warstwach poniżej transportowej* – zarówno OSI, jak i TCP/IP dążą do umożliwienia niezawodnej komunikacji między procesami na różnych użądzeniach za pomocą warstw niższego poziomu.
 
 === Różnice między modelami
 - *Cel powstania*:
