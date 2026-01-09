@@ -116,3 +116,8 @@ Mechanizm polegający na tym że wielokrotne wykonanie tej samej operacji przyni
 Przykładowo, call GET jest idempotentny ponieważ każde jego wywołanie nie zmienia stanu systemu.
 W klasycznej realizacji REST API, operacja POST nie jest idempotentna ponieważ każde jej wywołanie ma jedynie zapewnić przeprocesowanie danych (np. utworzenie nowego zasobu) @fieldingHypertextTransferProtocol2014. 
 Z kolei metoda PUT jest idempotentna, ponieważ wielokrotne wywołanie PUT z tymi samymi danymi nadpisze zasób do tego samego stanu.
+
+=== Możliwe dopytania
+
+- Jakie są kompromisy podczas realizacji CAP theorem - CA, CP, AP? (Manus)
+- Zaprojektuj system rozproszony i określ jego wyzwania. (Czarnul) 
