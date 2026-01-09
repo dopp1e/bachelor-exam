@@ -4,7 +4,7 @@
   q: "Cykle życia oprogramowania (modele wytwarzania oprogramowania)."
 )
 
-/ Model wytwarzania oprogramowania: Koncepcja, schemat opisujący organizację procesu wytwarzania systemu który zawiera podział na etapy i kryteria przechodzenia między nimi. Model nie wchodzi w szczegóły związane z narzędziami, technikami czy sposobami realizacji pracy w procesie. Jest to istotne aby nie mylić model wytwarzania od metodyki wytwarzania ponieważ są to dwa różne pojęcia. Do modeli zaliczają się np waterfall, v-model, modele iteracyjne, itd..
+/ Model wytwarzania oprogramowania: Koncepcja, schemat opisujący organizację procesu wytwarzania systemu który zawiera podział na etapy i kryteria przechodzenia między nimi. Model nie wchodzi w szczegóły związane z narzędziami, technikami czy sposobami realizacji pracy w procesie. Jest to istotne aby nie mylić modelu wytwarzania od metodyki wytwarzania ponieważ są to dwa różne pojęcia. Do modeli zaliczają się np waterfall, v-model, modele iteracyjne, itd.
 
 / Metodyka wytwarzania oprogramowania: Konkretna metoda która jest zbiorem szczegółowych zasad, narzędzi i praktyk stosowanych w konkretnym procesie tworzenia oprogramowania. Metodyka może bazować na jednym lub więcej modelach wytwarzania, ale definiuje konkretne sposoby realizacji tych etapów. Do metodyk zaliczamy np. Scrum, Kanban, Extreme programming.
 
@@ -12,9 +12,9 @@
 
 *Cowboy Coding*
 
-Jest to model w którym programiści mają całkowitą autonomię w kwestii podejmowania decyzji co do technicznych aspektów jak wykorzystywane narzędzia, algorytmy, języki i styl programowania.
-W tym modelu nie ma żadnego ustrukturyzowanego procesu, żadnej prowadzonej dokumentacji i raczej nie jest nastawiona do pracy z zespole czy z interesariuszami.
-Jest to styl charakterystyczny dla poziomie hobbistycznym czy studenckim jak tworzenie prestashopa na dockerze.
+Jest to model, w którym programiści mają całkowitą autonomię w kwestii podejmowania decyzji co do technicznych aspektów jak wykorzystywane narzędzia, algorytmy, języki i styl programowania.
+W tym modelu nie ma żadnego ustrukturyzowanego procesu, żadnej prowadzonej dokumentacji i raczej nie jest nastawiony do pracy w zespole, czy z interesariuszami.
+Jest to styl charakterystyczny na poziomie hobbistycznym czy studenckim, jak tworzenie prestashopa na dockerze.
 Jest to bardziej programistyczny żarcik, mem, niż faktyczny model. 
 
 Zalety:
@@ -56,15 +56,15 @@ Etapy modelu kaskadowego:
 
 *Wady:*
 - Uchwycenie całego problemu i wszystkich wymagań przed projektowaniem jest niemożliwe. Interesariusze często zmieniają zdanie co chcą lub my źle zrozumieliśmy co interesariusz chce. Wymagania mogą się też po prostu zmieniać,
-- Działające oprogramowanie powstaje bardzo późno → dopiero na końcu można cokolwiek pokazać interesariuszom (brak komunikacji z interesariuszami podczas wytwarzania),
-- Ogromny narzut pracy jeżeli zostanie wykryty błąd → reguła 1:10 według której koszt naprawy rośnie dziesięciokrotnie z kazdym etapem wytwarzania (np. jeśli błąd implementacji zostanie wykryty w planowaniu to koszt naprawy będzie 1000 razy droższy niż kontynuacja pracy w etapie planowania).
+- Działające oprogramowanie powstaje bardzo późno - dopiero na końcu można cokolwiek pokazać interesariuszom (brak komunikacji z interesariuszami podczas wytwarzania),
+- Ogromny narzut pracy jeżeli zostanie wykryty błąd - reguła 1:10 według której koszt naprawy rośnie dziesięciokrotnie z kazdym etapem wytwarzania (np. jeśli błąd implementacji zostanie wykryty w planowaniu to koszt naprawy będzie 1000 razy droższy niż kontynuacja pracy w etapie planowania).
 
 *Model V*
 
 Model V jest odmianą modelu kaskadowego, gdzie testowanie jest planowane równolegle z każdą fazą wytwarzanie, co pomaga zapewnić zgodność z wymaganiami na każdym etapie.
 Dodatkowo zględem modelu kaskadowego w modelu V, wymaganiem przed przejściem do kolejnej fazy jest zaplanowanie testów.
-Po zakończeniu implementacji, następuje faza testowania, wykonywany od szczegółu do ogółu, gdzie każdy etap testowania odpowiada fazie wytwarzania.
-Jeżeli zostanie wykryty błąd na jakimś etapie testowanie to wracamy do etapu wytwarzania do którego ten etap testowania był przypisany.
+Po zakończeniu implementacji, następuje faza testowania, wykonywana od szczegółu do ogółu, gdzie każdy etap testowania odpowiada fazie wytwarzania.
+Jeżeli zostanie wykryty błąd na jakimś etapie testowania, to wracamy do etapu wytwarzania, do którego ten etap testowania był przypisany.
 
 #figure(
   image("../../obrazki/v-model.webp", width: 60%)
@@ -93,9 +93,9 @@ Umożliwia to:
 - Poprawianie defektów w kolejnej iteracji.
 
 Ze względu na charakter kolejnych iteracji wyróżniamy:
-- dodanie kolejnej porcji funkcjonalności → *model przyrostowy*,
-- wizualizacja wymagań i ich lepsze zrozumienie → *model prototypowy*,
-- zaadresowanie największego ryzyka → *model spiralny*.
+- dodanie kolejnej porcji funkcjonalności - *model przyrostowy*,
+- wizualizacja wymagań i ich lepsze zrozumienie - *model prototypowy*,
+- zaadresowanie największego ryzyka - *model spiralny*.
 
 *Model przyrostowy*
 
@@ -136,21 +136,21 @@ Poza prototypowaniem wymagań możliwe jest również prototypowanie konstrukcji
 )
 
 Rodzaje prototypowania:
-- Prototypy “do wyrzucenia” → prototyp przygotowywany z myślą o identyfikacji wymagań a nie budowie docelowego produktu:
-    - Model “papierowy” → rysunki interfejsów systemu,
-    - Model “symulowany” → analityk odgrywa rolę systemu,
-    - Model “programowy” → oprogramowanie w celu demonstracji (interfejs i uproszczona funkcjonalność).
-- Model “ewolucyjny” → częściowo wykonany system docelowy.
+- Prototypy "do wyrzucenia" - prototyp przygotowywany z myślą o identyfikacji wymagań a nie budowie docelowego produktu:
+    - Model "papierowy" - rysunki interfejsów systemu,
+    - Model "symulowany" - analityk odgrywa rolę systemu,
+    - Model "programowy" - oprogramowanie w celu demonstracji (interfejs i uproszczona funkcjonalność).
+- Model "ewolucyjny" - częściowo wykonany system docelowy.
 
-Zalety:
+*Zalety:*
 - Wspomaganie identyfikacji wymagań,
 - Zwiększenie udziału interesariuszy w procesie wytwarzania,
 - Lepsza walidacja systemu, interesariusz może odnieść się do prototypu,
 - Możliwość oceny i doboru alternatywnych rozwiązań.
 
-Wady:
+*Wady:*
 - Budowa i wprowadzanie zmian do prototypu pochłania czas i koszty,
-- Projektant może “przyzwyczaić się” do rozwiązań z prototypu i użyć ich w docelowym systemie, a mogą one nie spełniać wymagań,
+- Projektant może "przyzwyczaić się" do rozwiązań z prototypu i użyć ich w docelowym systemie, a mogą one nie spełniać wymagań,
 - Klient widzi działający prototyp i nie rozumie dlaczego wymaga dalszej pracy.
 
 *Model spiralny*
