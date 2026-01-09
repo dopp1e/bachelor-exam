@@ -5,7 +5,7 @@
 )
 
 
-System telekomunikacyjny bazujący na IP jest co najwyżej tak bezpieczny jak sieć IP pod nim. Klasyczne rozwiazania telekomunikacyjne były dużo prostsze do zabezpieczenia, bo nie były wpięte w Internet.
+System telekomunikacyjny bazujący na IP jest co najwyżej tak bezpieczny jak sieć IP pod nim. Klasyczne rozwiązania telekomunikacyjne były dużo prostsze do zabezpieczenia, bo nie były wpięte w Internet.
 
 === Podstawowe funkcje bezpieczeństwa
 - *integralność danych* - zapewnienie, że dane nie zostały zmienione lub uszkodzone podczas transmisji, użycie jakiegoś mechanizmu kontroli integralności (np. sumy kontrolne, hashe kryptograficzne).
@@ -22,10 +22,10 @@ Płaszczyzna sygnalizacji w usługach multimedialnych opiera się na protokołac
   - TLS wykorzystuje mechanizmy kontroli integralności (np. *HMAC - Hash based Message Authentication Code*) (integralności danych).
   - Uwierzytelnianie użytkowników SIP za pomocą mechanizmów takich jak Digest Authentication lub certyfikaty cyfrowe (autentyczność).
 - Klient wysyłający wiadomość sygnalizacyjną tworzy tunel tylko z pierwszym serwerem SIP, nie z drugim ani końcowym odbiorcą.
-- Między każdą parą serwerów SIP może być zestawiony oddzielny tunel TLS. Natomiast każdy serwer na trasie musi być w stanie odczytać wiadomośći oraz je dowolnie modyfikować. Jest to główna różnica w stosunku do HTTPS, gdzie tylko końcowy serwer może odczytać wiadomość. Dlatego SIPS nie zapewnia pełnej poufności end-to-end tylko hop-by-hop. Z tego powodu używanie SIPS ma tylko sens jeśli serwery będą odpowiedzialnie tunelować ruch i nie będą próbowały podsłuchiwać wiadomości.
+- Między każdą parą serwerów SIP może być zestawiony oddzielny tunel TLS. Natomiast każdy serwer na trasie musi być w stanie odczytać wiadomości oraz je dowolnie modyfikować. Jest to główna różnica w stosunku do HTTPS, gdzie tylko końcowy serwer może odczytać wiadomość. Dlatego SIPS nie zapewnia pełnej poufności end-to-end tylko hop-by-hop. Z tego powodu używanie SIPS ma tylko sens jeśli serwery będą odpowiedzialnie tunelować ruch i nie będą próbowały podsłuchiwać wiadomości.
 
 === Płaszczyzna transmisji danych
-Obejmuje faktyczne przesyłanie danych multimedialnych, takich jak audio, wideo czy tekst. Na wykłładzie omawialiśmy tylko *RTP* (Real-time Transport Protocol) i jego rozszerzenie *SRTP (Secure RTP)*, które dodaje funkcje bezpieczeństwa do RTP. SRTP zapewnia:
+Obejmuje faktyczne przesyłanie danych multimedialnych, takich jak audio, wideo czy tekst. Na wykładzie omawialiśmy tylko *RTP* (Real-time Transport Protocol) i jego rozszerzenie *SRTP (Secure RTP)*, które dodaje funkcje bezpieczeństwa do RTP. SRTP zapewnia:
 - szyfrowanie *AES-CM 128* (poufność).
 - użycie *HMAC-SHA1* (integralność danych, autentyczność) może działać w następujący sposób:
   - W hash wiadomości zamieszczany jest klucz symetryczny:
@@ -39,4 +39,4 @@ Istnieje jeszcze możliwość użycia *ZRTP (Z Real-time Transport Protocol)*, k
 - Wykorzystuje protokół *Diffie-Hellman* do bezpiecznej wymiany kluczy między dwoma końcowymi punktami komunikacji bez potrzeby użycia zaufanego trzeciego serwera.
 - Klucz jest następnie używany do zabezpieczenia transmisji SRTP (generowane klucze asymetryczne są tymczasowe generowanie i wymieniane dla każdej sesji komunikacyjnej, co zapewnia odporność na ataki MiTM).
 - Może być wykorzystany z dowolnym protokołem sygnalizacyjnym (np. SIP, H.323).
-- Niezależny od warstwy sygnalizacji, ponieważ cała wymiana klucza / negocjacje odbywają zachodzą w strumieniu RTP.
+- Niezależny od warstwy sygnalizacji, ponieważ cała wymiana klucza oraz negocjacje zachodzą w strumieniu RTP.
