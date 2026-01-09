@@ -5,7 +5,7 @@
 )
 
 TSDB to kategoria baz danych zoptymalizowana pod kątem przechowywania i analizy danych szeregów czasowych. TSDB umożliwia przechowywanie nielimitowanych ilości danych historycznych i oferuje zawansowane funkcje analityczne oraz agregacje.
-- Przechowuje dane z sygnaturami czasowymi w sposób równomierny (z dowolnymi interwałami czasowymi między danymi)
+- Przechowuje dane z sygnaturami czasowymi w sposób równomierny (z dowolnymi interwałami czasowymi między danymi).
 - Jest skalowalna i wspiera zawansowane zapytania takie jak analizy trendów przewidywanie i porównania okresów.
 
 === Cechy charakterystyczne
