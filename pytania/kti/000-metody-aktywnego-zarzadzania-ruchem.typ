@@ -7,7 +7,7 @@
 === Routing
 Routing to proces wybierania i kierowania pakietów danych przez sieci komputerowe od źródła do celu, polegający na ustalaniu najoptymalniejszej ścieżki, co umożliwiają urządzenia zwane routerami i specjalne protokoły. Ma kluczowe znaczenie dla działania Internetu i dużych sieci, pozwala na efektywną wymianę danych, zarządzanie ruchem i dostosowywanie tras w razie awarii.
 
-Routing można uznać za jedną z metod aktynwego zarządania ruchem w sieciach, ponieważ te algorytmy mogą dostosowywać i zarządzać trasami pakietów.
+Routing można uznać za jedną z metod aktywnego zarządzania ruchem w sieciach, ponieważ te algorytmy mogą dostosowywać i zarządzać trasami pakietów.
 // Routing możemy dzielić na płaszczyznach takich jak:
 // - *Statyczny/Dynamiczny*: wpisy są zdefiniowane w urządzeniach sieciowych/z wykorzystaniem protokołów lub algorytmów routingu
 // - *Scentralizowany/Zdecentralizowany* -  decyzje o trasowaniu podejmowane w jednym centralnym urządzeniu/każde urządzenie samo sobie decyduje lokalnie
@@ -32,11 +32,11 @@ Zarządzanie pasmem to proces kontrolowania i optymalizacji dostępnej przepusto
 
 Przykładowe metody zarządzania pasmem to:
 - *Limitowanie pasma* - pozwala na ograniczanie przepustowości pasma dla konkretnych urządzeń/aplikacji, ogólnie strumieni;
-- *Token Bucket* - to metoda kształtowania ruchu sieciowego, która polega na "wpadaniu" tokenów (żetonów) do ograniczonego pojemnościowo kubełka w stałym tempie. Każdy pakiet danych lub jednostka "pobiera" jeden token, aby zostać przesłany; brak tokenów wstrzymuje ruch lub powoduje jego odrzucenie/opóźnienie, pozwalając na chwilowe "bursty", o ile kubełek jest pełny. Działa to jak bufor, który gromadzi rezerwę na chwilowe skoki obciążenia, zapewniając stabilne średnie natężenie przepływu. Dodatkowo istnieje wariant Hierarchical Token Bucket w którym wiadra mogą mieć rodzciów czy dzieci, który dodatkowo pozwala na "pożyczanie" tokenów od rodzica;
+- *Token Bucket* - to metoda kształtowania ruchu sieciowego, która polega na "wpadaniu" tokenów (żetonów) do ograniczonego pojemnościowo kubełka w stałym tempie. Każdy pakiet danych lub jednostka "pobiera" jeden token, aby zostać przesłany; brak tokenów wstrzymuje ruch lub powoduje jego odrzucenie/opóźnienie, pozwalając na chwilowe "bursty", o ile kubełek jest pełny. Działa to jak bufor, który gromadzi rezerwę na chwilowe skoki obciążenia, zapewniając stabilne średnie natężenie przepływu. Dodatkowo istnieje wariant Hierarchical Token Bucket w którym wiadra mogą mieć rodziców czy dzieci, który dodatkowo pozwala na "pożyczanie" tokenów od rodzica;
 - *Band steering* - w sieciach bezprzewodowych można przenosić ruch sieciowy między pasmami (np. 2.4GHz -> 5GHz) w celu uzyskania lepszej jakości usług.
 
 === Congestion control
-Mechanizm protokołu TCP dostosowywujący prędkość transmisji danych w zależności od przepustowości sieci. Operuje na tym, że w przypadku przeciążenia sieci kolejki buforów rosną co zwiększa opóźnienia i powoduje utratę pakietów. Nadawca może samodzielnie wykrywać przeciązenia i dostosowywać swoją prędkość.
+Mechanizm protokołu TCP dostosowujący prędkość transmisji danych w zależności od przepustowości sieci. Operuje na tym, że w przypadku przeciążenia sieci kolejki buforów rosną co zwiększa opóźnienia i powoduje utratę pakietów. Nadawca może samodzielnie wykrywać przeciążenia i dostosowywać swoją prędkość.
 
 Kluczowe pojęcia dla congestion control:
 - *Congestion Window* - zmienna nadawcy określająca maksymalną liczbę niepotwierdzony bajtów "w locie";
