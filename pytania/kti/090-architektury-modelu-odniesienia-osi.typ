@@ -7,9 +7,9 @@
 #text(lang: "pl", font: "linux libertine", size: 9pt)[
 #grid(
   columns: (24pt, 1fr, 1fr, 24pt),
-  stroke: 0.5pt + gray,
+  stroke: 0.5pt + luma(200),
   inset: 8pt,
-  fill: (col, row) => if row == 0 { gray.lighten(80%) } else { white },
+  fill: (col, row) => if row == 0 { rgb("#aaaaaa") },
   grid.cell([*ISO-OSI*], colspan: 2), grid.cell([*TCP-IP*], colspan: 2),
   grid.cell(align(horizon)[#rotate(270deg, reflow: true)[*Warstwy~aplikacyjne*]], rowspan: 3),
   [
