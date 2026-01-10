@@ -6,7 +6,6 @@
 )
 
 Wyróżniamy dwa rodzaje mediów transmisyjnych: 
-
 - przewodowe - skrętka (Ethernet), światłowód, kabel koncentryczny,
 - bezprzewodowe - Wi-Fi (fale radiowe), Bluetooth, podczerwień.
 
@@ -15,7 +14,6 @@ W sieciach LAN najczęściej wykorzystywane to skrętka oraz Wi-Fi.
 === Tryby transmisji
 
 Tryby transmisji danych definiują kierunek przepływu informacji oraz zdolność kanału do jednoczesnego nadawania i odbierania sygnałów. Tryby te to:
-
 - simpleks - jednokierunkowy kanał komunikacyjny (np. radio FM),
 - dupleks - zdolność do przesyłania w obu kierunkach, dzieli się na:
     - *half-dupleks - urządzenie w danej chwilii może albo nadawać, albo odbierać (np. Wi-Fi, koncentrator, hub)*,
@@ -26,7 +24,6 @@ Tryby transmisji danych definiują kierunek przepływu informacji oraz zdolnoś�
 Ponieważ w mediach współdzielonych (jak Wi-Fi czy stare sieci Ethernet) wiele urządzeń korzysta z jednego kanału, konieczne są metody zarządzania ruchem, aby uniknąć kolizji.
 
 Dzieli się je na:
-
 - *metody rywalizacji* - niezbędne w trybie half-dupleks do unikania kolizji (np. ALOHA, CSMA/CA, CSMA/CD),
 - *metody bezkolizyjne (sterowane)* - stacje nadają wtedy, otrzymają na to wyraźne pozwolenie lub specjalny "żeton" (np. token ring, token bus, polling),
 - *metody kanałowe (podziałowe)* - dzielą medium na niezależne części np. po częstotliwości (FDMA) lub czas (TDMA).
@@ -46,7 +43,6 @@ Metody dostępu rywalizacyjnego charakteryzują się tym że urządzenia podłac
 Jest to najprostszy protokół który swoją nazwę zawdzięcza temu że został oryginalnie zaprojektowany dla Uniwersytetu Hawajskiego. Nie jest za bardzo efektywny ponieważ większość czasu sieć jest zablokowana przez kolizje. 
 
 Kroki działania:
-
 1. Natychmiast przesyłaj.
 2. Poczekaj na potwierdzenie odbiorcy (ACK).
 3. Jeśli brak potwierrdzenia, poczekaj losowy czas i przesyłaj ponownie.
@@ -58,7 +54,6 @@ Kroki działania:
 Ulepszona ALOHA o określone przedziały czasowe (slots).
 
 Kroki działania:
-
 1. Synchronizacja: Urządzenia synchronizują swoje zegary z ustalonymi slotami czasowymi.
 2. Przesyłanie w slocie: Urządzenie może przesyłać dane tylko na początku najbliższego wolnego slotu.
 3. Potwierdzenie ACK: Odbiorca potwierdza poprawne odebranie danych.
@@ -71,7 +66,6 @@ Kroki działania:
 *CSMA/CD (Carrier Sense Multiple Access with Collision Detection)* - metoda stosowana w sieciach Ethernet. Urządzenia nasłuchują medium, aby upewnić się że jest wolne.
 
 Kroki działania:
-
 1. Nasłuchiwanie medium *(Carrier Sense)* - urządzenie upewnia się, że medium jest wolne.
 2. Rozpoczęcie transmisji.
 3. Wykrywanie kolizji *(Collision Detection)* - urządzenie wykrywa kolizje, kiedy zaczynają otrzymywać transmisje kiedy nadają (w przypadku skrętki poprzez mierzenie napięcia elektrycznego na przewodzie).
@@ -89,7 +83,6 @@ Kroki działania:
 *CSMA/CA (Carrier Sense Multiple Access with Colission Avoidance)* - wykorzystywana metoda w sieciach bezprzewodowych (Wi-Fi). Urządzenia również nasłuchują medium ale zamiast wykrywać kolizję, starają się ich unikać, wprowadzając dodatkowe procedury rezerwacji medium przed wysyłaniem danych. Wtedy wówczas jeżeli uda się urządzeniu zarezerwować medium jest ono na wyłączność.
 
 Kroki działania:
-
 1. Nasłuchiwanie medium - urządzenie nasłuchuje czy inne nadają.
 2. Rezerwacja medium - wysłanie sygnału żądania transmisji (Request to Sent, RTS), informując inne urządzenia o zamiarze nadania wiadomości:
     #{
@@ -113,7 +106,6 @@ Kroki działania:
 === Metody dostępu bezkolizyjnego
 
 Metody te eliminują ryzyko kolizji, ponieważ dostęp do medium jest kontrolowany w sposób planowy i uporządkowany.
-
 - *Token ring* - topologia pierścienia (komputery podłączone ze sobą w pierścień). W tej metodzie, po całej sieci krąży specjalny token. Jeśli urządzenie posiada token, to oznacza, że może nadawać wiadomości. Po transmisji przekazuje token dalej. Wada: możliwość utracenia tokenu.
 - *Token Bus* - protokół dla sieci o topologii magistralowej, działa jak token ring, tylko, że urządzenia są połączone w magistralę a token jest przykazywany niezależnie od topologii fizycznej.
 - *Polling* - działa na zasadzie centralnego kontrolera, który pyta każde urządzenie czy chce przesyłać dane. Nadaje tym urządzeniom dostęp do medium.
@@ -121,7 +113,6 @@ Metody te eliminują ryzyko kolizji, ponieważ dostęp do medium jest kontrolowa
 === Metody współdzielonego medium (kanałowe)
 
 W metodach kanałowych medium transmisyjne jest dzielone między urządzeniami. Każde urządzenie ma swój kanał dzięki czemu mogą one nadawać jednocześnie bezkolizyjnie. Podział tego medium może być według czasu dostępu do medium, częstotliwości nadawania.
-
 - *FDMA (Frequency Division Multiple Access)* - to metoda w której medium jest podzielone na różne pasma częstotliwości. Każde urządzenie nadaje transmisje na swoim paśmie i może to robić jednocześnie z innymi urządzeniami.
 - *TDMA (Time Division Multiple Access)* - to metoda w której medium jest podzielone na przedziały czasowe (sloty). Każde urządzenie ma przypisany swój slot w którym może przesyłać dane. Sloty są przydzielane sekwencyjnie.
 - *CDMA (Code Division Multiple Access)* - to metoda w której urządzenia korzystają z tego samego pasma częstotliwości ale każde z nich używa unikalnego kodu do przesyłania danych. Dzięki temu jest możliwe rozróżnienie transmisji nawet jeśli odbywają się one jednocześnie.
