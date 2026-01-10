@@ -4,9 +4,9 @@
   q: "Porównanie sieci LAN i WAN."
 )
 
-*LAN* - Local Area Network to sieć komputerowa łącząca komputery na określonym, ograniczonym obszarze jak np. szkoła czy biuro. 
+*LAN* (Local Area Network) - sieć komputerowa łącząca komputery na określonym, ograniczonym obszarze jak np. szkoła czy biuro.
 
-*WAN* - Wide Area Network to sieć komputerowa łącząca ze sobą sieci LAN. Ta sieć komputerowa jest na tyle rozległa że obejmuje obszar wykraczający tereny miasta, kraju a nawet kontynent.
+*WAN* (Wide Area Network) - sieć komputerowa łącząca ze sobą sieci LAN. Ta sieć komputerowa jest na tyle rozległa że obejmuje obszar wykraczający poza tereny miasta, kraju a nawet kontynentu.
 
 #{
   set text(hyphenate: false, size: 9pt)
