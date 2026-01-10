@@ -3,106 +3,107 @@
 #show: question.with(
   q: "Architektury Modelu Odniesienia OSI oraz TCP/IP; podobieństwa i różnice."
 )
-
-#set text(lang: "pl", font: "linux libertine", size: 9pt)
-
-#table(
-  columns: (1fr, 1fr),
+#block(breakable: false)[
+#text(lang: "pl", font: "linux libertine", size: 9pt)[
+#grid(
+  columns: (24pt, 1fr, 1fr, 24pt),
   stroke: 0.5pt + gray,
   inset: 8pt,
   fill: (col, row) => if row == 0 { gray.lighten(80%) } else { white },
-  
-  [*ISO-OSI*], [*TCP-IP*],
+  grid.cell([*ISO-OSI*], colspan: 2), grid.cell([*TCP-IP*], colspan: 2),
+  grid.cell(align(horizon)[#rotate(270deg, reflow: true)[*Warstwy~aplikacyjne*]], rowspan: 3),
+  [
+    #align(center)[*Warstwa aplikacji*]
+    - Obsługa użytkownika,
+    - Transmisja plików,
+    - Dostęp do baz danych,
+    - Zarządzanie transmisją,
+    - Rozsyłanie poczty.
+  ],
+  grid.cell([
+    #align(center)[*Warstwa aplikacji*]
+    - Procesy i protokoły użytkowe (np. HTTP, SMTP, FTP),
+    - Funkcje realizowane są w stacjach końcowych a nie specjalnie wydzielonych pośredniczących (jak w OSI),
+    - Jednostki danych: *strumienie (TCP), wiadomości (UDP)*.
+  ], rowspan: 3),
+  grid.cell(align(horizon)[#rotate(270deg, reflow: true)[*Protokoły*]], rowspan: 3),
+  [
+    #align(center)[*Warstwa prezentacji*]
+    - Przekształcanie danych użytkownika do danych w postaci stosowanej w sieci,
+    - Zabezpieczenia kryptograficzne,
+    - Kompresja danych.
+  ],[  
+    #align(center)[*Warstwa sesji*]
+    - Nawiązywanie i rozwiązywanie sesji,
+    - Dialog między procesami,
+    - Sockety.
+  ],
+  grid.cell(align(horizon)[#rotate(270deg, reflow: true)[*Warstwy~przepływu~danych*]], rowspan: 4),
+  [
+    #align(center)[*Warstwa transportowa*]
+    - Niezawodny i przezroczysty przekaz danych end-to-end,
+    - Wykrywanie i retransmisja błędnych danych,
+    - Sterowanie przepływem.
+  ],
+  [
+    #align(center)[*Warstwa transportowa*]
+    - Protokoły TCP, UDP,
+    - Jednostki danych - *segmenty (TCP), pakiety (UDP)*,
+    - Nachodzi na warstwę sesji ISO-OSI.
+  ],
+  grid.cell(align(horizon)[#rotate(270deg, reflow: true)[*Sieci*]], rowspan: 4),
+  [
+    #align(center)[*Warstwa sieciowa*]
+    - Routing,
+    - Ochrona sieci przed przeciążeniami,
+    - Łączenie heterogenicznych sieci,
+    - Segmentacja/resegmentacja pakietów,
+    - Przezroczysty przekaz danych (brak ingerencji),
+    - Wyróżnia się podwarstwę współpracy międzysieciowej.
+  ],
+  [
+    #align(center)[*Warstwa międzysieciowa*]
+    - Enkapsulacja datagramów w ramki,
+    - Odwzorowywanie adresów IP na fizyczne,
+    - Przesyłanie pakietów/segmentów,
+    - Defragmentacja pakietów/segmentów,
+    - Protokół pomocniczy ICMP,
+    - Protokół IP.
+  ],
+  [
+    #align(center)[*Warstwa łącza danych*]
+    - Tworzenie ramek,
+    - Niezawodny przekaz ramek kanałem cyfrowym,
+    - Sterowanie dostępem do medium komunikacyjnego,
+    - Dzieli się na podwarstwy LLC (podwarstwa kanału logicznego, konwersja warstwa sieciowa <-> dany protokół typu Ethernet, WiFi) i MAC (dostęp do medium).
+  ],
+  [
+    #align(center)[*Warstwa dostępu do sieci*]
+    - Komutacja pakietów,
+    - Bezpołączeniowość,
+    - Jednostka danych: *ramki*,
+    - Rozwiązania np. Ethernet, WiFi, SONET,
+    - Nachodzi na warstwę sieciową ISO-OSI.
+  ],
 
   [
-    *Warstwa aplikacji*
-    - obsługa użytkownika
-    - transmisja plików
-    - dostęp do baz danych
-    - zarządzanie transmisją
-    - rozsyłanie poczty
-    
-    *Warstwa prezentacji*
-    - przekształcanie danych użytkownika do danych w postaci stosowanej w sieci
-    - zabezpieczenia kryptograficzne
-    - kompresja danych
-    
-    *Warstwa sesji*
-    - nawiązywanie i rozwiązywanie sesji
-    - dialog między procesami
-    - sockety
+    #align(center)[*Warstwa fizyczna*]
+    - Przekaz ciągów bitów między stacjami,
+    - Dostosowanie postaci sygnałów do właściwości medium (np. czy full-duplex, techniki modulacji),
+    - Dzieli się na podwarstwy PHY (protokół warstwy fizycznej) i PMD (podwarstwa dopasowania do medium fizycznego),
+    - Np. 100BaseTX.
   ],
   [
-    *Warstwa aplikacji*
-    - procesy i protokoły użytkowe (np. HTTP, SMTP, FTP)
-    - funkcje realizowane są w stacjach końcowych a nie specjalnie wydzielonych pośredniczących (jak w OSI)
-    - jednostka danych: *strumienie (TCP), wiadomości (UDP)*
-  ],
-
-  [
-    *Warstwa transportowa*
-    - niezawodny i przezroczysty przekaz danych end-to-end
-    - wykrywanie i retransmisja błędnych danych
-    - sterowanie przepływem
-  ],
-  [
-    *Warstwa transportowa*
-    - protokoły TCP, UDP
-    - jednostki danych - *segmenty (TCP), pakiety (UDP)*
-    - *NACHODZI NA WARSTWĘ SESJI*
-  ],
-  [
-    *Warstwa sieciowa*
-    - routing
-    - ochrona sieci przed przeciążeniami
-    - łączenie heterogenicznych sieci
-    - segmentacja/resegmentacja pakietów
-    - przezroczysty przekaz danych (brak ingerencji)
-    - wyróżnia się podwarstwę współpracy międzysieciowej
-  ],
-  [
-    *Warstwa międzysieciowa*
-    - enkapsulacja datagramów w ramki
-    - odwzorowywanie adresów IP na fizyczne
-    - przesyłanie pakietów/segmentów
-    - defragmentacja pakietów/segmentów
-    - protokół pomocniczy ICMP
-    - protokół IP
-  ],
-  [
-    *Warstwa łącza danych*
-    - tworzenie ramek
-    - niezawodny przekaz ramek kanałem cyfrowym
-    - sterowanie dostępem do medium komunikacyjnego
-    - dzieli się na podwarstwy LLC (podwarstwa kanału logicznego, konwersja warstwa sieciowa <-> dany protokół typu Ethernet, WiFi) i MAC (dostęp do medium)
-  ],
-  [
-    *Warstwa dostępu do sieci*
-    - komutacja pakietów
-    - bezpołączeniowość
-    - jednostka danych: *ramki*
-    - rozwiązania np. Ethernet, WiFi, SONET
-    - *NACHODZI NA WARSTWĘ SIECIOWĄ*
-  ],
-
-  [
-    *Fizyczna*
-    - przekaz ciągów bitów między stacjami
-    - dostosowanie postaci sygnałów do właściwości medium (np. czy full-duplex, techniki modulacji)
-    - dzieli się na podwarstwy PHY (protokół warstwy fizycznej) i PMD (podwarstwa dopasowania do medium fizycznego)
-    - np. 100BaseTX
-  ],
-  [
-    *Fizyczna* (nie ma tej warstwy w TCP). To nie jest tak, że w TCP/IP warstwy fizycznej nie ma tylko warstwa dostępu do sieci/łącza danych realizuje również jej funkcje.
+    #align(center)[*Warstwa fizyczna*]
+    Nie jest tak, że w TCP/IP warstwy fizycznej nie ma, tylko warstwa dostępu do sieci / łącza danych realizuje również jej funkcje.
   ]
 )
-
-
-
+]
+]
 === Podobieństwa między modelami
-- *Oparcie na idei protokolów warstwowych* – oba modele dzielą komunikację sieciową na warstwy, z których każda ma określone funkcje i zadania, co umożliwia modułowe podejście do projektowania i implementacji.
+- *Oparcie na idei protokolów warstwowych* - oba modele dzielą komunikację sieciową na warstwy, z których każda ma określone funkcje i zadania, co umożliwia modułowe podejście do projektowania i implementacji.
 - *Orientacja warst powyżej transportowej na aplikacje* - w obu modelach warstwy powyżej transportowej (warstwa sesji, prezentacji i aplikacji w OSI oraz warstwa aplikacji w TCP/IP) koncentrują się na dostarczaniu usług bezpośrednio użytkownikowi końcowemu.
-- *Zapewnienie dwupunktowej komunikacji na warstwach poniżej transportowej* – zarówno OSI, jak i TCP/IP dążą do umożliwienia niezawodnej komunikacji między procesami na różnych użądzeniach za pomocą warstw niższego poziomu.
+- *Zapewnienie dwupunktowej komunikacji na warstwach poniżej transportowej* - zarówno OSI, jak i TCP/IP dążą do umożliwienia niezawodnej komunikacji między procesami na różnych użądzeniach za pomocą warstw niższego poziomu.
 
 === Różnice między modelami
 - *Cel powstania*:
