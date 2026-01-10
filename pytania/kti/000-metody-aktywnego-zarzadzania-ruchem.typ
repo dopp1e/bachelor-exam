@@ -7,7 +7,7 @@
 === Routing
 Routing to proces wybierania i kierowania pakietów danych przez sieci komputerowe od źródła do celu, polegający na ustalaniu najoptymalniejszej ścieżki, co umożliwiają urządzenia zwane routerami i specjalne protokoły. Ma kluczowe znaczenie dla działania Internetu i dużych sieci, pozwala na efektywną wymianę danych, zarządzanie ruchem i dostosowywanie tras w razie awarii.
 
-Routing można uznać za jedną z metod aktynwego zarządania ruchem w sieciach, ponieważ te algorytmy mogą dostosowywać i zarządzać trasami pakietów.
+Routing można uznać za jedną z metod aktywnego zarządzania ruchem w sieciach, ponieważ te algorytmy mogą dostosowywać i zarządzać trasami pakietów.
 // Routing możemy dzielić na płaszczyznach takich jak:
 // - *Statyczny/Dynamiczny*: wpisy są zdefiniowane w urządzeniach sieciowych/z wykorzystaniem protokołów lub algorytmów routingu
 // - *Scentralizowany/Zdecentralizowany* -  decyzje o trasowaniu podejmowane w jednym centralnym urządzeniu/każde urządzenie samo sobie decyduje lokalnie
