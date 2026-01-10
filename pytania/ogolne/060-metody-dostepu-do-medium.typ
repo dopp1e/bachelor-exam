@@ -38,9 +38,9 @@ Metody dostępu rywalizacyjnego charakteryzują się tym że urządzenia podłac
 
 ==== Aloha
 
-#info[Praktycznie nie stosowane]
+#info[Praktycznie niestosowane]
 
-Jest to najprostszy protokół który swoją nazwę zawdzięcza temu że został oryginalnie zaprojektowany dla Uniwersytetu Hawajskiego. Nie jest za bardzo efektywny ponieważ większość czasu sieć jest zablokowana przez kolizje. 
+Jest to najprostszy protokół, który swoją nazwę zawdzięcza temu że został oryginalnie zaprojektowany dla Uniwersytetu Hawajskiego. Nie jest za bardzo efektywny, ponieważ większość czasu sieć jest zablokowana przez kolizje. 
 
 Kroki działania:
 1. Natychmiast przesyłaj.
