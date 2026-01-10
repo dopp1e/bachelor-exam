@@ -7,7 +7,7 @@
 === Modele barw
 
 Modele barw w grafice komputerowej to sposoby matematycznego opisu koloru, który jest stosowany do ich reprezentacji, analizy, modyfikacji i wyświetlania na różnych urządzeniach.
-Różne modele zą stosowane do różnych rzeczy, w zależności od potrzeb. Modele barw możemy podzielić ze względu na:
+Różne modele zą stosowane do różnych rzeczy, w zależności od potrzeb. Modele barw możemy podzielić ze względu na na przeznaczenie i sposób mieszania barw.
 
 ==== Przeznaczenie
 
@@ -155,6 +155,28 @@ HSV/HSB i HSL przedstawia się za pomocą walca, gdzie V/B lub L to wysokość, 
 
 ==== YUV i YIQ
 
-TODO: To potrzebne w sumie?
+Są to modele które powstały na potrzeby systemów telewizyjnych szczególnie w kontekście przesyłania obrazu.
+Oddzielają one informację o kolorze od jasności która jest dla nas ważniejsza ponieważ nosi więcej informacji o obrazie.
+Ludzkie oko jest bardziej czułe na jasność (światło) niż na kolory. 
 
-*Zastosowanie*:
+YUV składa się z:
+
+Y - jasność,
+
+U - składowa chrominancji dla różnic niebieskiego,
+
+V - składowa chrominancji dla różnic czerwieni.
+
+U i V to razem chrominancja.
+
+Jest to model stosowany jako standard europejski PAL i był kompatybilny zarówno z telewizorami z kolorem, jak i czarnobiałymi (odbierały tylko kanał Y). 
+YIQ jest odobny do YUV ale stosowany jako standard amerykański NTSC. 
+
+*Zastosowanie*: Telewizja analogowa
+
+=== Możliwe dopytania
+
+- Dlaczego graficy nie lubią RGB? (Boiński: Boiński chciał żeby się skupić na technicznych modelach) (odp: bo ciężko uzyskać barwę na podstawie składowych RGB i łatwiej jest używać np. HSV)
+- W jakim modelu można przedstawić metaliczny? (Manus) (odp: metal to nie kolor, a faktura/wykończenie)
+- Czy RGB może odzwierciedlić wszystkie możliwe kolory? (Janczewski: według niego nie, bo metalicznego się nie da) (odp: to samo co wyżej o metalu + RGB nie przedstawia wszystkich możliwych kolorów, patrz sRGB - jest to podzbiór kolorów)
+- Czemu istnieje zarówno CMY i CMYK? (?) (odp: pomieszanie barw CMY daje bardziej siny zamiast czarnego + czarny barwnik jest tańszy)
