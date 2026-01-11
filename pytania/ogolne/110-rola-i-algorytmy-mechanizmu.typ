@@ -4,15 +4,14 @@
   q: "Rola i algorytmy mechanizmu szeregowania zadań w jądrze systemu operacyjnego."
 )
 
-System operacyjny to programowanie, które jest zarząądcą tego co się dzieje na komputerze. Jest odpowiedzialny za uruchamianie aplikacji oraz zarządzanie zasobami komputera (np. czas pracy procesora).
+System operacyjny to oprogramowanie, które jest zarządcą tego, co się dzieje na komputerze. Jest odpowiedzialny za uruchamianie aplikacji oraz zarządzanie zasobami komputera (np. czas pracy procesora).
 
 Centralnym elementem systemu operacyjnego jest *jądro systemu* (kernel), które dostarcza możliwość zarządzania zasobami sprzętowymi komputera i pośredniczy w komunikacji między sprzętem a oprogramowaniem. Wykonuje zadania takie jak:
-
 - zarządzanie pamięcią (alokowanie pamięci i zwalnianie),
 - zarządzanie procesami,
 - zarządzanie urządzeniami.
 
-System operacyjny zapewnia sobie dostęp poprzez mechanizm *wywłaszczania* (przerywanie proecsu i przełączanie kontekstu). System operacyjny robi to za pomocą przerwań systemowych, które wykonywane są co kwant czasu. Scheduler może wtedy decydować co dalej zrobić procesem.
+System operacyjny zapewnia sobie dostęp poprzez mechanizm *wywłaszczania* (przerywanie procesu i przełączanie kontekstu). System operacyjny robi to za pomocą przerwań systemowych, które wykonywane są co kwant czasu. Scheduler może wtedy decydować co dalej zrobić procesem.
 
 *Scheduler (planista)* - element należący do jądra systemu operacyjnego, który jest odpowiedzialny za zarządzanie czasem procesora. Scheduler odpowiada za szeregowanie zadań, czyli określa priorytet procesu, w którym zostanie uznane pierwszeństwo wykonania. Do głównych zadań schedulera należą:
 
