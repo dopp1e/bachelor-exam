@@ -4,12 +4,12 @@
   q: "Metody obsługi mobilności w sieciach IP; motywacja, przykłady, porównanie z mechanizmami przełączania w sieciach Wi-Fi."
 )
 
-Motywacją jest utrzymywanie aktywnych sesji sieciowych podczas zmiany lokalizacji, zapewnieni ciągłości usług, redukcji opóźnień i przerw w dostępie do sieci.
+Motywacją jest utrzymywanie aktywnych sesji sieciowych podczas zmiany lokalizacji, zapewnienie ciągłości usług, redukcji opóźnień i przerw w dostępie do sieci.
 
 #image("../../obrazki/homeagent.png")
 
 Elementy *Mobile IP dla IPv4*:
-- *Home Agent* - serwer w siecie macierzystej urządzenia mobilnego, który przechowuje informacje o jego lokalizacji i przekazuje pakiety,
+- *Home Agent* - serwer w sieci macierzystej urządzenia mobilnego, który przechowuje informacje o jego lokalizacji i przekazuje pakiety,
 - *Foreign Agent* - serwer w sieci obcej, do której aktualnie podłączony jest host mobilny,
 - *Mobile Node* - urządzenie mobilne,
 - *Care-of Address* - tymczasowy adres przypisywany hostowi mobilnemu w obcej sieci,
