@@ -336,6 +336,9 @@ Jeśli współczynniki $a$ i $b$ są równe, obraz będzie odpowiednio powiększ
       $ y_2 = r cos(phi) sin(theta) + r sin(phi) cos(theta) $
       $ y_2 = x_1 sin(theta) + y_1 cos(theta) $
     ]
+    #showybox[
+      $ P_2 = mat(x_2, y_2) $
+    ]
   ],
 )
 ]
@@ -433,3 +436,23 @@ Operacja Zakmnięcia powoduje:
 #figure(
   image("../../obrazki/otwarcie-zamkniecie.webp", width: 80%)
 )
+
+=== Możliwe dopytania
+
+- Jakie są typy plików graficznych? (Pikies) (Odp. Rastrowe, np. PNG, JPEG oraz wektorowe, np. SVG.)
+- Co się dzieje jeśli okno pikseli jest na krawędzi? (Dziubich) (Odp. Trzeba pokryć krawędzie czymś na bazie oryginalnego obrazu np. odbijając obraz lub używając jakiejś sprytnej interpolacji.)
+- Czy format plików może mieć wpływ na wykonywanie tych operacji? (Dereniowski) (Odp. Tak, np. w przypadku kompresji stratnej, jak JPEG, operacje będą wykonywane na zniekształconych danych, co da inny rezultat niż na oryginalnym obrazie.)
+- Co trzeba zrobić, aby przekształcić JPG w GIF? (Manus)
+  (Odp. GIF obsługuje mniej kolorów niż JPG, więc trzeba zastosować kwantyzację kolorów, aby dopasować paletę kolorów GIF do obrazu JPG. Może to prowadzić do utraty jakości obrazu.)
+- Co jest bardziej skomplikowane, rasteryzacja czy wektoryzacja obrazu? (Manus) (Odp. Wektoryzacja, ponieważ wymaga analizy obrazu rastrowego w celu identyfikacji kształtów i linii, które następnie są przekształcane na format wektorowy. Rasteryzacja jest prostsza, ponieważ polega na konwersji wektorów na piksele.)
+- Rasteryzacja i wektoryzacja to przykłady operacji zaliczających się do której podannej przez pana grupy? (Manus) (Odp. Żadnej, pewnie zaliczylibyśmy je do kategorii konwersji formatów plików graficznych.)
+- Czym jest progowanie? (Manus) (Odp. Progowanie to operacja przekształcania obrazu w pewnej skali (np. szarości) na obraz binarny poprzez ustawienie wartości progowej. Piksele o jasności powyżej progu są ustawiane na biały, a poniżej na czarny.)
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1em,
+    align: (col, row) => (
+      center + horizon
+    ),
+    image("../../obrazki/Pavlovsk_Railing_of_bridge_Yellow_palace_Winter.jpg", width: 70%),
+    image("../../obrazki/Pavlovsk_Railing_of_bridge_Yellow_palace_Winter_bw_threshold.jpg", width: 70%)
+  )
