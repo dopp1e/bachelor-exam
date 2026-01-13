@@ -65,6 +65,7 @@ Plusy:
 
 === Porównanie MobileIP oraz Wi-Fi
 
+#block(breakable: false)[
 #{
   set text(hyphenate: false, size: 9pt)
   set par(justify: false)
@@ -95,3 +96,4 @@ Plusy:
     [Złożoność], [Wymaga infrastruktury (Home Agent, Foreign Agent)], [Wymaga nakładania się zasięgów AP i (zazwyczaj) kontrolera]
   )
 }
+]
