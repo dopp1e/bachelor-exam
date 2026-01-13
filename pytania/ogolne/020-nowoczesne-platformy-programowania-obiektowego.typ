@@ -23,7 +23,7 @@ Istnieją platformy do różnych celów, między innymi:
 
 Platforma technologiczna należąca do firmy Oracle. Platforma Java składa się z:
 
-- *JVM (Java Virtual Machine)* - wirtualna maszyna, która jest środowiskiem, w którym jest wykonywany bytecode (pliki .class). Przez to, każde urządzenie posiadające JVM jest w stanie uruchomić programy Java. JVM nie jest kompatybilne wstecz, więc wymagana jest konkretna wersja.
+- *JVM (Java Virtual Machine)* - wirtualna maszyna, która jest środowiskiem, w którym jest wykonywany bytecode (pliki .class). Przez to, każde urządzenie posiadające JVM jest w stanie uruchomić programy Java. JVM jest kompatybilne wstecz.
     - *JIT (Just in Time compiler)* - działa w trakcie działania programu, kompiluje wybrane fragmenty kodu, oraz zapisuje je w postaci maszynowej do szybszej egzekucji. Szczególnie przydatne do fragmentów programu, które egzekwowane są wielokrotnie.
 - *JRE (Java Runtime Environment)* - środowisko uruchomieniowe, odpowiada za utworzenie instancji maszyny wirtualnej. To JRE służy do uruchamiania aplikacji. Zaweria biblioteki standardowe.
 - *JDK (Java Development Kit)* - zestaw narzędzi programistycznych dla języka Java. Zawiera on:
