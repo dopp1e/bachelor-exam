@@ -69,7 +69,7 @@ Plusy:
   set text(hyphenate: false, size: 9pt)
   set par(justify: false)
   table(
-    columns: (auto, 2fr, 1fr, 2fr),
+    columns: (auto, 1fr, 1fr),
     align: (col, row) => (
       if col == 0 { center + horizon } else { left + top }
     ),
