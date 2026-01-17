@@ -45,7 +45,7 @@ Są to tak jakby metryki które są stosowane do oceny istniejącego już interf
 9. *Pomoc w rozwiązywaniu problemów:* System powinien jasno komunikować błędy i sugerować sposoby naprawy (np. komunikat "Brak połączenia z internetem. Sprawdź swoje ustawienia sieciowe.").
 10. *Dokumentacja i pomoc:* Interfejs powinien zapewnić łatwy dostęp do dokumentacji czy samouczków.
 
-== Możliwe dopytania
+=== Możliwe dopytania
 
 - Wymień zasady interfejów konsolowych CLI. (Dziubich)
 - Kazał wymienić 10 heurystyk Nielsena a potem dokładnie jedną opisać. (Manus)
