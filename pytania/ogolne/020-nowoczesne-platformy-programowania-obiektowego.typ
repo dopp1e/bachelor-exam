@@ -55,4 +55,4 @@ Platforma technologiczna należąca do firmy Microsoft. Kiedyś głównie na Win
 - Czym jest platforma? Czym różni się od języka oprogramowania? (autor nieznany)
 - Czy któraś z platform jest płatna? (Manus)
 - Polimorfizm. (idk o co z tym chodzi) (Manus)
-- W Javascript i Pythonie jak coś wygląda jak kaczka, to czy jest kaczką? (wygląda jak odklejka) (Manus)
+- W Javascript i Pythonie jak coś wygląda jak kaczka, to czy jest kaczką? (Manus)  (Odp. Tak, Manus ma tutaj na myśli duck typing - czyli jeśli coś zachowuje się jak dana rzecz, to można to tak traktować bez względu na typ formalny, np. dodatkowe atrybuty, metody niedefiniowane w typie.)
