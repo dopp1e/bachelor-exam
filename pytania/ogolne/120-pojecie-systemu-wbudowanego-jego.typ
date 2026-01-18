@@ -24,7 +24,7 @@ Systemy operacyjne możemy również podzielić biorąc pod uwagę potrzebę ene
 
 === Obszary zastosowań systemów wbudowanych
 
-W skrócie - zawsze i wszędzie.
+Systemy wbudowane są szeroko wykorzystywane w wielu obszarach.
 
 #block(breakable: false)[
 #{
