@@ -5,7 +5,7 @@
 )
 
 === Połączeniowość
-Protokół transportowy może być połączeniowy lub bezpołączeniowy. Protokół połączeniowy (np. TCP) ustanawia logiczne połączenie między dwoma punktami końcowymi przed rozpoczęciem transmisji danych, co zapewnia niezawodność i kontrolę przepływu. Wykorzystuje mechanizm *three way handshake* do nawiązania połączenia jest to trzyetapowy proces ustanawiania połączenia, który obejmuje:
+Protokół transportowy może być połączeniowy lub bezpołączeniowy. Protokół połączeniowy ustanawia logiczne połączenie między dwoma punktami końcowymi przed rozpoczęciem transmisji danych, co zapewnia niezawodność i kontrolę przepływu. Przykładowo TCP wykorzystuje mechanizm *three way handshake* do nawiązania połączenia. Jest to trzyetapowy proces, który obejmuje:
 1. SYN - inicjacja połączenia przez nadawcę,
 2. SYN-ACK - potwierdzenie otrzymania żądania przez odbiorcę,
 3. ACK - potwierdzenie przez nadawcę otrzymania potwierdzenia od odbiorcy.
