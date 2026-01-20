@@ -19,7 +19,7 @@
   polish: true,
   footer-text: "",
   subject: "Egzamin Inżynierski",
-  version: "v0.0.0"
+  version: "v0.0.2"
 )
 
 #show heading.where(level: 4): set heading(numbering: none)
