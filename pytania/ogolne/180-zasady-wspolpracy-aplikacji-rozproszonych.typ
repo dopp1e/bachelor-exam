@@ -5,7 +5,7 @@
   q: "Zasady współpracy aplikacji rozproszonych z bazami danych."
 )
 
-/ Aplikacje rozproszone: Systemy które działają na wielu komputerach (węzłach) lub w chmurze (np. multum wirtualek amazonowych), które mogą wykonywać tą samą lub różne funkcje (np. obsługiwać żądania HTTP). Każdy z węzłów może potrzebować dostępu do bazy danych co wymaga specjalnej komunikacji między węzłami a bazą tak aby zapewnić spójność danych, wydajność dostępu i skalowalność systemu.  
+/ Aplikacje rozproszone: Systemy które działają na wielu komputerach (węzłach) lub w chmurze, które mogą wykonywać tą samą lub różne funkcje. Każdy z węzłów może potrzebować dostępu do bazy danych co wymaga specjalnej komunikacji między węzłami a bazą tak aby zapewnić spójność danych, wydajność dostępu i skalowalność systemu.  
 
 W kontekście komunikacji wyzwaniem w zaprojektowaniu tej komunikacji jest zapewnienie trzech głównych cech, opisanych w CAP Theorem.
 
@@ -16,7 +16,7 @@ W aplikacjach rozproszonych, bazy danych mogą zapewniać maksymalnie dwa z trze
 - *Availability* - System zawsze działa i odpowiada na pytania,
 - *Partition Tolerance* - System działa nawet jeżeli jego część nie działa np przez utratę komunikacji między węzłami.
 
-Podczas projektowania systemu należy podjąć decyzje które cechy są dla nas najważniejsze (np. na podstawie wymagań biznesowych).
+Podczas projektowania systemu należy podjąć decyzje które cechy są dla nas najważniejsze.
 Jest to fizycznie niemożliwe żeby osiągnąć wszystkie 3 jednocześnie.
 Możliwe kombinacje:
 - *CA* - Czyli dane w systemie są spójne i zawsze jest do nich dostęp czego nie da się osiągnąć w systemach rozproszonych (czyli działa na jednym węźle, monolit),
