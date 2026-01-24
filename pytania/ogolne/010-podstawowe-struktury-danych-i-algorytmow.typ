@@ -139,8 +139,35 @@ Najważniejsze rodzaje drzew:
   3. ostatni element kopca ustawiany jest na wierzchołek
   4. powrót do kroku 1 z tablicą o rozmiarze 1 mniejszym (ponieważ wierzchołek kopca który został przeniesiony jest już posortowany)
   https://www.youtube.com/watch?v=2DmK_H7IdTo
-- TRIE - TODO:
-- Red-Black Tree - TODO:
+- TRIE (Drzewo prefiksowe)
+
+#figure(
+  image("../../obrazki/trie.webp"),
+  caption: [Przykład struktury TRIE przechowującej słowa: "tea", "ted", "ten", "to", "inn". Przypisane liczby są losowe, nie mają znaczenia w strukturze.],
+)
+
+TRIE to specjalistyczna struktura drzewiasta służąca do przechowywania zbiorów ciągów znaków. W przeciwieństwie do standardowych drzew, węzły nie przechowują całych kluczy, lecz ich fragmenty (zazwyczaj pojedyncze znaki).
+
+Cechy charakterystyczne:
+- Wspólne prefiksy - słowa o tym samym początku dzielą tę samą ścieżkę w drzewie, co oszczędza miejsce.
+- Węzeł - zawiera tablicę wskaźników do dzieci (rozmiar zależy od alfabetu) oraz flagę `isEndOfWord`.
+- Złożoność - operacje wyszukiwania i wstawiania zależą od długości słowa $L$, czyli $O(L)$, a nie od liczby elementów w strukturze.
+
+- Red-Black Tree (Drzewo Czerwono-Czarne)
+
+#image("../../obrazki/red-black-tree.webp")
+
+Jest to rodzaj samobalansującego się binarnego drzewa poszukiwań (BST). Gwarantuje ono, że wysokość drzewa pozostaje na poziomie $O(log n)$, co zapobiega pesymistycznej złożoności liniowej.
+
+Zasady:
+1. Każdy węzeł jest albo czerwony, albo czarny.
+2. Korzeń oraz liście (NIL) są zawsze czarne.
+3. Jeśli węzeł jest czerwony, to jest synowie muszą być czarni.
+4. Każda ścieżka od węzła do liści zawiera tyle samo czarnych węzłów.
+
+Spełnianie tych zasad zapewnia zrównoważenie drzewa podczas operacji wstawiania i usuwania węzłów. Wymagania te gwarantują, że najdłuższa ścieżka od korzenia do liścia nie jest dłuższa niż dwukrotność najkrótszej ścieżki, co utrzymuje wysokość drzewa na poziomie logarytmicznym względem liczby węzłów.
+
+Balansowanie odbywa się poprzez rotacje (zmiana struktury wskaźników) oraz przekolorowanie węzłów po operacjach wstawiania lub usuwania.
 
 ==== Grafy
 
