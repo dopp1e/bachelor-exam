@@ -176,7 +176,13 @@ Grafy mogą mieć różne sposoby reprezentacji:
 - tablica - dla konkretnych przypadków,
 - macierz sąsiedztwa - macierz binarna zawierająca 0 i 1, wartość 1 oznacza sąsiedztwo i-tego węzła z j-tym (gdzie i to nr kolumny a j to wiersza),
 - lista sąsiedztwa - n-elementowa tablica list, gdzie każdy element składa się z wierzchołka grafu i wskaźnika na inny wierzchołek, który jest jego sąsiadem,
-- pęki wyjściowe.
+- pęki wyjściowe - struktura przydatna, jeśli graf się nie zmienia. Trzymamy dwie tablice, jedna w której trzymamy wskaźniki na początek pęków wyjściowych dla każdego wierzchołka, a druga tablica trzyma wszystkie krawędzie.
+
+
+#figure(
+  image("../../obrazki/forward_star_example.webp"),
+  caption: [Przykład reprezentacji grafu za pomocą pęków wyjściowych.],
+)
 
 #image("../../res/macierzlistaporownanie.webp")
 
