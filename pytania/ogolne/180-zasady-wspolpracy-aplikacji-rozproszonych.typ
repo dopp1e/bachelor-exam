@@ -115,7 +115,8 @@ Przykładem jest Exponential Backoff, gdzie czas między próbami rośnie wykła
 Mechanizm polegający na tym że wielokrotne wykonanie tej samej operacji przyniesie ten sam efekt co jej pojedyncze wykonanie.
 Przykładowo, call GET jest idempotentny ponieważ każde jego wywołanie nie zmienia stanu systemu.
 W klasycznej realizacji REST API, operacja POST nie jest idempotentna ponieważ każde jej wywołanie ma jedynie zapewnić przeprocesowanie danych (np. utworzenie nowego zasobu) @fieldingHypertextTransferProtocol2014. 
-Z kolei metoda PUT jest idempotentna, ponieważ wielokrotne wywołanie PUT z tymi samymi danymi nadpisze zasób do tego samego stanu.
+Dobrą praktyką jest implementowanie PUTa jako idempotentnego, tak że wielokrotne wywołanie PUT z tymi samymi danymi nadpisze zasób do tego samego stanu.
+Nie jest to jednak regułą i zależy od konkretnej implementacji API.
 
 === Możliwe dopytania
 
