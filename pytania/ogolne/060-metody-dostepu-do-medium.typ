@@ -2,10 +2,10 @@
 #import "../../res/question.typ": question
 
 #show: question.with(
-  q: "Metody dostępu do medium transmisyjnego w lokalnych sieciach komputerowych."
+  q: "Metody dostępu do medium transmisyjnego w lokalnych sieciach komputerowych.",
 )
 
-Wyróżniamy dwa rodzaje mediów transmisyjnych: 
+Wyróżniamy dwa rodzaje mediów transmisyjnych:
 - przewodowe - skrętka (Ethernet), światłowód, kabel koncentryczny,
 - bezprzewodowe - Wi-Fi (fale radiowe), Bluetooth, podczerwień.
 
@@ -16,8 +16,8 @@ W sieciach LAN najczęściej wykorzystywane to skrętka oraz Wi-Fi.
 Tryby transmisji danych definiują kierunek przepływu informacji oraz zdolność kanału do jednoczesnego nadawania i odbierania sygnałów. Tryby te to:
 - simpleks - jednokierunkowy kanał komunikacyjny (np. radio FM),
 - dupleks - zdolność do przesyłania w obu kierunkach, dzieli się na:
-    - *half-dupleks - urządzenie w danej chwilii może albo nadawać, albo odbierać (np. Wi-Fi, koncentrator, hub)*,
-    - full-dupleks - dwukierunkowa transmisja, urządzenia mogą jednocześnie nadawać i odbierać (np. switch).
+  - *half-dupleks - urządzenie w danej chwilii może albo nadawać, albo odbierać (np. Wi-Fi, koncentrator, hub)*,
+  - full-dupleks - dwukierunkowa transmisja, urządzenia mogą jednocześnie nadawać i odbierać (np. switch).
 
 === Metody dostępu do medium transmisyjnego
 
@@ -40,12 +40,12 @@ Metody dostępu rywalizacyjnego charakteryzują się tym że urządzenia podłac
 
 #info[Praktycznie niestosowane]
 
-Jest to najprostszy protokół, który swoją nazwę zawdzięcza temu że został oryginalnie zaprojektowany dla Uniwersytetu Hawajskiego. Nie jest za bardzo efektywny, ponieważ większość czasu sieć jest zablokowana przez kolizje. 
+Jest to najprostszy protokół, który swoją nazwę zawdzięcza temu że został oryginalnie zaprojektowany dla Uniwersytetu Hawajskiego. Nie jest za bardzo efektywny, ponieważ większość czasu sieć jest zablokowana przez kolizje.
 
 Kroki działania:
 1. Natychmiast przesyłaj.
 2. Poczekaj na potwierdzenie odbiorcy (ACK).
-3. Jeśli brak potwierrdzenia, poczekaj losowy czas i przesyłaj ponownie.
+3. Jeśli brak potwierdzenia, poczekaj losowy czas i przesyłaj ponownie.
 
 ==== S-ALOHA
 
@@ -85,21 +85,21 @@ Kroki działania:
 Kroki działania:
 1. Nasłuchiwanie medium - urządzenie nasłuchuje czy inne nadają.
 2. Rezerwacja medium - wysłanie sygnału żądania transmisji (Request to Sent, RTS), informując inne urządzenia o zamiarze nadania wiadomości:
-    #{
+  #{
     set enum(numbering: "a.")
     [
       + brak kolizji RTS - medium jest zarezerwowane i przechodzi do punktu 3,
       + dwa urządzenia mogą jednocześnie otrzymać RTS, wtedy następuje kolizja i urządzenie czeka losowy czas żeby znowu wysłać sygnał RTS.
     ]
-    }
+  }
 3. Odpowiedź CTS (Clear To Send) - odbiorca potwierdza możliwość transmisji.
-    #{
+  #{
     set enum(numbering: "a.")
     [
       + brak kolizji CTS - krok 4
       + jeżeli dwa urządzenia wysłały RTS do różnych odbiorców, mogą otrzymac kolidujące CTS z dwóch źródeł. W takim wypadku nadawca nie otrzyma CTS i założy że doszło do kolizji.
     ]
-    }
+  }
 4. Przesyłanie danych - urządzenie wysyła dane, mając gwarancję na wyłączność medium.
 5. Potwierdzenie - odbiorca wysyła ACK.
 

@@ -2,13 +2,13 @@
 #import "../../res/question.typ": question
 
 #show: question.with(
-  q: "Zasady modelowania dla konstrukcji relacyjnych baz danych."
+  q: "Zasady modelowania dla konstrukcji relacyjnych baz danych.",
 )
 
 / Baza danych: zbiór powiązanych logicznie ze sobą danych zorganizowany zgodnie z określonym modelem danych.
   Wybrany model określa logiczne reguły konstrukcji tej bazy i jest jednym z poziomów architektury systemu baz danych.
   #figure(
-    image("../../obrazki/dbms.webp", width: 80%)
+    image("../../obrazki/dbms.webp", width: 80%),
   )
   - Poziom zewnętrzny (Użytkownika) - Zbiór widoków, czyli fragmentów bazy danych uzyskanych w wyniku zapytania.
   - *Poziom logiczny (modelu danych)* - Poziom, w którym znajduje się konceptualny opis bazy danych który definiuje jej zawartość, formę i związki między danymi.
@@ -19,47 +19,45 @@ Niezależność ułatwia na skalowalność fizyczną bazy (np. poprzez zwiększe
 
 Relacyjne bazy danych to model który opiera się na relacjach i związkach między nimi.
 
-*Relacja* to dowolny podzbiór produktu kartezjańskiego skończonej liczby dziedzin prostych. Dziedzina prosta to zbiór danych atomowych (niezłożonych).
+*Relacja* to dowolny podzbiór iloczynu kartezjańskiego skończonej liczby dziedzin prostych. Dziedzina prosta to zbiór danych atomowych (niezłożonych).
 
 #info(title: "Matematycznie")[
-Mamy dziedziny proste:
-- $D_1$ = zbiór liczb {1, 2},
-- $D_2$ = zbiór słów {Tak, Nie},
-- $D_3$ = zbiór dat {21.12, 24.12}.
+  Mamy dziedziny proste:
+  - $D_1$ = zbiór liczb {1, 2},
+  - $D_2$ = zbiór słów {Tak, Nie},
+  - $D_3$ = zbiór dat {21.12, 24.12}.
 
-Z których tworzymy relację:
-$ R_1 ⊆ D_1 times D_2 times D_3 = {(1, "Tak", 21.12), (2, "Nie", 24.12)} $
+  Z których tworzymy relację:
+  $ R_1 ⊆ D_1 times D_2 times D_3 = {(1, "Tak", 21.12), (2, "Nie", 24.12)} $
 
-Tę relację możemy przedstawić w formie tabeli:
-#block(breakable: false, width: 100%)[
-#{
-  set text(hyphenate: false, size: 9pt)
-  set par(justify: false)
-  set align(center)
-  table(
-    columns: (2cm, 2cm, 2cm),
-    align: (col, row) => (
-      center + horizon
-    ),
-    stroke: (x, y) => (
-      bottom: 0.5pt + gray.lighten(50%),
-      top: if y == 0 { 1pt + black } else { 0pt }
-    ),
-    fill: (col, row) => (
-      if row == 0 { rgb("E0E0E0") } // Darker header
-      else if calc.even(row) { rgb("F5F5F5") } // Zebra striping
-      else { white }
-    ),
-  
-    table.header(
-      [*$D_1$*], [*$D_2$*], [*$D_3$*]
-    ),
+  Tę relację możemy przedstawić w formie tabeli:
+  #block(breakable: false, width: 100%)[
+    #{
+      set text(hyphenate: false, size: 9pt)
+      set par(justify: false)
+      set align(center)
+      table(
+        columns: (2cm, 2cm, 2cm),
+        align: (col, row) => (
+          center + horizon
+        ),
+        stroke: (x, y) => (
+          bottom: 0.5pt + gray.lighten(50%),
+          top: if y == 0 { 1pt + black } else { 0pt },
+        ),
+        fill: (col, row) => (
+          if row == 0 { rgb("E0E0E0") } // Darker header
+          else if calc.even(row) { rgb("F5F5F5") } // Zebra striping
+          else { white }
+        ),
 
-    [1], [Tak], [21.12],
-    [2], [Nie], [24.12]
-  )
-}
-]
+        table.header([*$D_1$*], [*$D_2$*], [*$D_3$*]),
+
+        [1], [Tak], [21.12],
+        [2], [Nie], [24.12],
+      )
+    }
+  ]
 ]
 
 Relacja to inaczej zbiór *encji* (jednoznacznie odróżnialnych od siebie obiektów).
@@ -89,7 +87,7 @@ Między relacjami w bazie danych mogą zachodzić związki (relationships).
 Jest to zbiór krotek takich, że encje z jednego zbioru są połączone jakąś zależnością z encją drugiego zbioru.
 
 // #info(title: "Formalnie")[
-// Związek między zbiorami encji $E_1, E_2, … , E_n$ to zbiór n-elementowych krotek ($e_1, e_2, … , e_n$) takich że e1∈ E1, e2 ∈ E2, … , en ∈ En. 
+// Związek między zbiorami encji $E_1, E_2, … , E_n$ to zbiór n-elementowych krotek ($e_1, e_2, … , e_n$) takich że e1∈ E1, e2 ∈ E2, … , en ∈ En.
 // ]
 // Zacząłem to przepisywać, ale mam wrażenie że raczej nikt tego nie spamięta
 
@@ -98,19 +96,19 @@ W kontekście baz danych związki są realizowane przy użyciu *kluczy obcych*.
 Rodzaje związków:
 - 1:1 (jeden do jeden) - klucz obcy jest po dowolnej stronie,
   #figure(
-    image("../../obrazki/relacja-1-1.webp", width: 90%)
+    image("../../obrazki/relacja-1-1.webp", width: 90%),
   )
 - 1:n (jeden do wielu) - klucz obcy jest po stronie "wielu",
   #figure(
-    image("../../obrazki/relacja-1-n.webp", width: 90%)
+    image("../../obrazki/relacja-1-n.webp", width: 90%),
   )
 - n:m (wiele do wielu) - tworzymy dodatkową relację łącznikową z kluczami obcymi do obu relacji,
   #figure(
-    image("../../obrazki/relacja-n-m.webp", width: 90%)
+    image("../../obrazki/relacja-n-m.webp", width: 90%),
   )
 - 1:0..n (jeden do wielu lub zero) - klucz obcy może być pusty po stronie "wielu".
   #figure(
-    image("../../obrazki/relacja-1-0-n.webp", width: 90%)
+    image("../../obrazki/relacja-1-0-n.webp", width: 90%),
   )
 
 W procesie tworzenia modelu relacyjnego bazy danych jest to istotne żeby była znormalizowana.
@@ -123,20 +121,20 @@ Mogą powodować problemy w zarządzaniu danymi i ich użytkowaniu.
 
 Rodzaje anomalii:
 + Anomalia wstawiania:
-    - *Problem:* Nie można dodać nowych danych bez jednoczesnego podania innych, niepotrzebnych danych.
-    - *Przykład:*
-        - Tabela „Pracownicy” zawiera kolumny: *Imię, Dział, Kierownik*.
-        - Chcemy dodać nowy dział, ale nie ma w nim jeszcze pracowników. Bez podania informacji o przynajmniej jednym pracowniku w nowym dziale, nie możemy dodać rekordu.
+  - *Problem:* Nie można dodać nowych danych bez jednoczesnego podania innych, niepotrzebnych danych.
+  - *Przykład:*
+    - Tabela „Pracownicy” zawiera kolumny: *Imię, Dział, Kierownik*.
+    - Chcemy dodać nowy dział, ale nie ma w nim jeszcze pracowników. Bez podania informacji o przynajmniej jednym pracowniku w nowym dziale, nie możemy dodać rekordu.
 + Anomalia aktualizacji:
-    - *Problem:* Zmiana danych w jednym miejscu wymaga aktualizacji wielu rekordów, co prowadzi do niespójności, jeśli któryś z rekordów zostanie pominięty.
-    - *Przykład*:
-        - Tabela „Faktury” zawiera kolumny: *Numer faktury, Klient, Adres klienta*.
-        - Klient zmienia adres. W rezultacie musimy zaktualizować adres we wszystkich rekordach związanych z tym klientem. Jeśli pominie się choć jeden rekord, dane staną się niespójne.
+  - *Problem:* Zmiana danych w jednym miejscu wymaga aktualizacji wielu rekordów, co prowadzi do niespójności, jeśli któryś z rekordów zostanie pominięty.
+  - *Przykład*:
+    - Tabela „Faktury” zawiera kolumny: *Numer faktury, Klient, Adres klienta*.
+    - Klient zmienia adres. W rezultacie musimy zaktualizować adres we wszystkich rekordach związanych z tym klientem. Jeśli pominie się choć jeden rekord, dane staną się niespójne.
 + Anomalia usuwania:
-    - *Problem:* Usunięcie jednych danych powoduje utratę innych, powiązanych danych.
-    - *Przykład*:
-        - Tabela „Zamówienia” zawiera kolumny: *ID zamówienia, ID klienta, Szczegóły zamówienia*.
-        - Jeśli wszystkie zamówienia danego klienta zostaną usunięte, tracimy również informację o samym kliencie.
+  - *Problem:* Usunięcie jednych danych powoduje utratę innych, powiązanych danych.
+  - *Przykład*:
+    - Tabela „Zamówienia” zawiera kolumny: *ID zamówienia, ID klienta, Szczegóły zamówienia*.
+    - Jeśli wszystkie zamówienia danego klienta zostaną usunięte, tracimy również informację o samym kliencie.
 
 Normalizację przeprowadza się poprzez zapewnienie że relacja spełnia poniższe zasady:
 - *1NF* - pierwsza forma normalna:
@@ -151,11 +149,11 @@ Normalizację przeprowadza się poprzez zapewnienie że relacja spełnia poniżs
     columns: (1fr, 1fr),
     gutter: 1em,
     figure(
-      image("../../obrazki/relacja-2nf-1.webp", width: 90%)
+      image("../../obrazki/relacja-2nf-1.webp", width: 90%),
     ),
     figure(
-      image("../../obrazki/relacja-2nf-2.webp", width: 45%)
-    )
+      image("../../obrazki/relacja-2nf-2.webp", width: 45%),
+    ),
   )
 - *3NF* - trzecia forma normalna:
   - Spełnia 2NF,
@@ -165,11 +163,11 @@ Normalizację przeprowadza się poprzez zapewnienie że relacja spełnia poniżs
     columns: (1fr, 1fr),
     gutter: 1em,
     figure(
-      image("../../obrazki/relacja-3nf-1.webp", width: 90%)
+      image("../../obrazki/relacja-3nf-1.webp", width: 90%),
     ),
     figure(
-      image("../../obrazki/relacja-3nf-2.webp", width: 45%)
-    )
+      image("../../obrazki/relacja-3nf-2.webp", width: 45%),
+    ),
   )
 
 === Możliwe dopytania
