@@ -74,7 +74,7 @@ Wyróżniamy rodzaje kluczy:
 - *Klucz główny* - klucz jednoznacznie wskazujący na encję, wybrany z kluczy kandydujących,
 - *Klucz kandydujący* - atrybut należący do zbioru klucza,
 - *Klucz biznesowy* - klucz który jednoznacznie identyfikuje encje także w rzeczywistości (np. PESEL),
-- *Klucz surogatowy* - abstrakcyjny klucz, automatycznie generowany identyfikator,
+- *Klucz zastępczy/sztuczny* - abstrakcyjny klucz, automatycznie generowany identyfikator,
 - *Klucz obcy* - klucz identyfikujący relację w której encja jest w związku.
 
 #memo(title: "Ważne!")[
