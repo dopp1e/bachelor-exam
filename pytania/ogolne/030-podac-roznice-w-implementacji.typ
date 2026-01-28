@@ -2,32 +2,32 @@
 #import "../../res/question.typ": question
 
 #show: question.with(
-  q: "Podać różnice w implementacji obiektowości w kilku wybranych językach programowania."
+  q: "Podać różnice w implementacji obiektowości w kilku wybranych językach programowania.",
 )
 
 
-Paradygmat programowania - zbiór zasad, które definiują sposób tworzenia i strukturyzacji programów. Określa sposób patrzenia programisty na przepływ sterowania i wykonanie programu komputeroweg.
+Paradygmat programowania - zbiór zasad, które definiują sposób tworzenia i strukturyzacji programów. Określa sposób patrzenia programisty na przepływ sterowania i wykonanie programu komputerowego.
 
 Programowannie obiektowe - paradygmat programowania, w którym program jest złożony z współpracujących ze sobą obiektów, które są instancjami klas. Te klasy zaweriają informacje oraz metody, które będą przechowywane w obiekcie. Klasy te mogą reprezentować byty rzeczywiste ze świata lub abstrakcyjne.
 
 - Abstrakcja - polega na ukrywaniu szczegółów implementacyjnych obiektu przekazując co klasa robi, a nie w jaki sposób. Jest to egzekwowane poprzez tworzenie klas abstrakcyjnych oraz interfejsów. Np. możemy mieć interfejs `Pojazd`, który mówi o istnieniu metody `jedź()`, wtedy klasa `Samochód` lub `Ciężarówka` implementując ten interfejs.
-    - Klasa abstrakcyjna - nie można z niej bezpośrednio stworzyć obiektu, są to szablony które mają właściwości, metody z pełną implementacją oraz metody wirtualne które muszą być zaimplementowane w klasie dziedziczącej.
-    - Interfejs - definiuje zestaw metod bez ich implementacji. Interfejsy nie mogą zawierać zmiennych. Klasy korzystające z interfejsu muszą realizować implementację wszystkich metod zdefiniowanych w interfejsie.
+  - Klasa abstrakcyjna - nie można z niej bezpośrednio stworzyć obiektu, są to szablony które mają właściwości, metody z pełną implementacją oraz metody wirtualne które muszą być zaimplementowane w klasie dziedziczącej.
+  - Interfejs - definiuje zestaw metod bez ich implementacji. Interfejsy nie mogą zawierać zmiennych. Klasy korzystające z interfejsu muszą realizować implementację wszystkich metod zdefiniowanych w interfejsie.
 - Enkapsulacja - opakowanie danych i metod przetwarzających te dane w klasy. Przykładowo klasa `KontoBankowe` może mieć zmienną `saldo`, ale dostęp do niej może być poprzez metody `wpłać()` i `wypłać()`. Zapewnia ukrywanie szczegółów implementacyjnych poprzez ukrywanie danych i metod za pomocą modyfikatorów dostępu takich jak: `public`, `protected`, `private`.
-     #memo(title: "Ważne!")[
-      Enkapsulacja nie jest jednoznaczna z hermatyzacją. Hermetyzacja to szersze pojęcie dotyczące ukrywania szczegółów implementacyjnych. Enkapsulacja jest narzędziem implementującym hermetyzację.
-    ]
+  #memo(title: "Ważne!")[
+    Enkapsulacja nie jest jednoznaczna z hermatyzacją. Hermetyzacja to szersze pojęcie dotyczące ukrywania szczegółów implementacyjnych. Enkapsulacja jest narzędziem implementującym hermetyzację.
+  ]
 - Hermetyzacja - ukrywanie szczegółów implementacyjnych klasy i eksponowanie tylko tych, które są istotne dla użytkownika klasy. Jest to *konceptualny fundament* programowania obiektowego. Obejmuje enkapsulację, ale jest szersze, ponieważ odnosi się do projektu i abstrakcji a nie tylko do technicznych mechanizmów.
 - Polimorfizm - instancja klasy może być różna. Przykładowo, tablica może mieć obiekty typu `Pojazd`, przy czym możemy iterować po całej tablicy wywołując metodę `jedź()`, ponieważ wiemy że będzie to zaimplementowane.
 - Dziedziczenie - pozwala na wydzielenie głównych cech obiektu do klasy nadrzędnej. Przykładowo, w klasie pojazd możemy mieć zmienną `koła`.
 
 === Java
 
-Java jest w pełni obiektowym językiem. Wszystko (z wyjątkiem typów prymitywnych) musi znajdować się w klasie.
+Java jest obiektowym językiem. Wszystko (z wyjątkiem typów prymitywnych) musi znajdować się w klasie. Javy natomiast nie uznaje się język w pełni obiektowy lub czysto obiektowy, ponieważ posiada typy prymitywne (np. `int`, `char`, `boolean`), które nie są obiektami. Dodatkowo Java posiada klasy statyczne, które nie są instancjami obiektów. Przykładowo, w takim języku jak Python, wszystko jest obiektem, nawet klasy statyczne, które są obiektami specjalnego typu `type`.
 
 ==== Abstrakcja
 
-Java wsbiera abstrakcję poprzez klasy abstrakcyjne oraz interfejsy. Klasy abstrakcyjne mogą mieć metody wirtualne (implementacja po stronie klas dziedziczących) jak i zdefiniowane (z implementacją). Interfejsy są używane do definiowania kontraktów.
+Java wspiera abstrakcję poprzez klasy abstrakcyjne oraz interfejsy. Klasy abstrakcyjne mogą mieć metody wirtualne (implementacja po stronie klas dziedziczących) jak i zdefiniowane (z implementacją). Interfejsy są używane do definiowania kontraktów.
 
 ==== Enkapsulacja
 
@@ -48,7 +48,7 @@ W Javie można dziedziczyć jedynie po jednej klasie, ale można implementować 
 
 === Python
 
-Python jest językiem wieloparadygmatowym, jednakże paradygmat obiektowy jest silnie wspierany, tak, że nawet typy prymitywne są obiektem.
+Python jest językiem wieloparadygmatowym, jednakże jest również językiem czysto obiektowym, ponieważ wszystko w Pythonie jest obiektem. Poza Pythonem językiem czysto obiektowym jest np. Smalltalk.
 
 ==== Abstrakcja
 
@@ -58,15 +58,15 @@ W Pythonie abstrakcja jest możliwa za pomocą modułu `abc` (abstract base clas
 from abc import ABC, abstractmethod
 
 class Vehicle(ABC):
-	
+
 	@abstractmethod
 	def drive():
 		pass
-		
+
 class Car(Vehicle):
-	
+
 	def drive():
-		print("You are driving a car) 
+		print("You are driving a car)
 ```
 
 Nie ma formalnych interfejsów.

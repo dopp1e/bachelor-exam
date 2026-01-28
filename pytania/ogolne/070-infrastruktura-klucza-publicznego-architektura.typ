@@ -1,7 +1,7 @@
 #import "../../res/question.typ": question
 
 #show: question.with(
-  q: "Infrastruktura klucza publicznego - architektura oraz sposoby wykorzystania."
+  q: "Infrastruktura klucza publicznego - architektura oraz sposoby wykorzystania.",
 )
 
 === Kryptografia symetryczna
@@ -29,7 +29,7 @@ Może to też posłużyć za poświadczenie autorstwa (zakładając, że tylko j
 - Zapewnia bezpieczne szyfrowanie i weryfikacje tożsamości w komunikacji elektronicznej,
 - Umożliwia poufność, uwierzytelnianie i integralność danych.
 
-Najważniejszym elementem PKI jest Certyfikat, który potwierdza że dany klucz publiczny należy do konkretnej osoby i że został podpisany przez urząd certyfikacji oraz czy jest wciąż aktulany. 
+Najważniejszym elementem PKI jest Certyfikat, który potwierdza że dany klucz publiczny należy do konkretnej osoby i że został podpisany przez urząd certyfikacji oraz czy jest wciąż aktulany.
 
 Głównym celem PKI jest zapewnienie zaufania w środowisku cyfrowym poprzez:
 1. *Szyfrowanie*: Umożliwienie bezpiecznej wymiany danych między stronami,
@@ -40,14 +40,14 @@ Głównym celem PKI jest zapewnienie zaufania w środowisku cyfrowym poprzez:
 === Architektura PKI
 
 / Klucz publiczny: Klucz kryptograficzny, który jest stosowany do szyfrowania wiadomości oraz do weryfikowania podpisów cyfrowych. Klucz publiczny jest udostępniany każdemu kto go potrzebuje.
-/ Klucz prywatny: Klucz kryptograficzny, który posiada właściciel pary kluczy publicznego i prywatnego, służący do odszyfrowywania wiadomości oraz do tworzenia podpisu elektronicznego. Klucz prywatny jest utrzymywany w tajemnicy przez właściciela. 
-/ Certyfikat cyfrowy: Obszerny dokument który zawiera w sobie klucz publiczny, informacje o właścicielu certyfikatu, urzędzie certyfikacji który go wydał oraz datę ważności tego certyfikatu. Jest on dostępny publicznie w repozytoriach. 
-/ Podpis cyfrowy: Odpowiednik podpisywania dokumentów w rzeczywistości. Jest tworzony przy użyciu klucza prywatnego i służy do potwierdzenia autentyczności, integralności i pochodzenia dokumentu lub danych. Osoba mająca klucz publiczny może zweryfikować ten podpis. 
+/ Klucz prywatny: Klucz kryptograficzny, który posiada właściciel pary kluczy publicznego i prywatnego, służący do odszyfrowywania wiadomości oraz do tworzenia podpisu elektronicznego. Klucz prywatny jest utrzymywany w tajemnicy przez właściciela.
+/ Certyfikat cyfrowy: Obszerny dokument który zawiera w sobie klucz publiczny, informacje o właścicielu certyfikatu, urzędzie certyfikacji który go wydał oraz datę ważności tego certyfikatu. Jest on dostępny publicznie w repozytoriach.
+/ Podpis cyfrowy: Odpowiednik podpisywania dokumentów w rzeczywistości. Jest tworzony przy użyciu klucza prywatnego i służy do potwierdzenia autentyczności, integralności i pochodzenia dokumentu lub danych. Osoba mająca klucz publiczny może zweryfikować ten podpis.
 / Urząd certyfikacji (Certificate Authority, CA): Organizacja urzędowa, która jest odpowiedzialna za wydawanie, weryfikację oraz anulowanie certyfikatów. Zarządza certyfikatami
 / Urząd rejestracji (Registration Authority, RA): Pośrednik pomiędzy użytkownikiem który ubiega się o certyfikat a urzędem certyfikacji. Odpowiada za uwierzytelnienie osoby ubiegającej się o certyfikat przed jego wydaniem.
-/ Listy odwołanych certyfikatów (Certificate Revocation List, CLR): Jest to lista certyfikatów które zostały unieważnione przed upływem ich terminu ważności. Po ich upływie nie ma sensu wpisywać na tą listę bo z góry przedawnione certyfikaty są nieważne.
-/ Repozytorium Certyfikatów: Publiczna baza danych w której są przechowywane certyfikaty oraz listy CLR. Za pomocą tego repozytorium użytkownik może pobrać certyfikat i użyć zawartego w nim klucza publicznego do szyfrowania wiadomości czy tam weryfikowania podpisów.
-/ Protokół OCSP: Online Certificate Status Protocol to mechanizm pozwalający na bieżąco sprawdzać status ważności certyfikatu bez konieczności pobierania listy CLR. Ogólnie to OCSP dostarcza bardziej aktualne informacje i działa w czasie rzeczywistym.
+/ Listy odwołanych certyfikatów (Certificate Revocation List, CRL): Jest to lista certyfikatów które zostały unieważnione przed upływem ich terminu ważności. Po ich upływie nie ma sensu wpisywać na tą listę bo z góry przedawnione certyfikaty są nieważne.
+/ Repozytorium Certyfikatów: Publiczna baza danych w której są przechowywane certyfikaty oraz listy CRL. Za pomocą tego repozytorium użytkownik może pobrać certyfikat i użyć zawartego w nim klucza publicznego do szyfrowania wiadomości czy tam weryfikowania podpisów.
+/ Protokół OCSP: Online Certificate Status Protocol to mechanizm pozwalający na bieżąco sprawdzać status ważności certyfikatu bez konieczności pobierania listy CRL. Ogólnie to OCSP dostarcza bardziej aktualne informacje i działa w czasie rzeczywistym.
 / Hierarchia zaufania: PKI może być zorganizowana w hierarchię zaufania, która jest drzewem którego węzłami są urzędy certyfikacji. Najwyższy węzeł podpisuje inne urzędy itd. Jeżeli chcemy sprawdzić czy możemy ufać jakiemuś CA to idziemy po tym drzewie w górę aż znajdziemy jakieś zaufane CA.
   / Główne CA (Root CA): Najwyższy poziom zaufania w hierarchii. Charakteryzuje się tym że jest podpisane samo przez siebie. Komputer albo przeglądarka utrzymuje listy zaufanych urzędów certyfikacji, przez co każde CA poniżej w hierarchi wtedy jest też zaufane.
   / Podrzędne CA (Intermediate CA): wydają certyfikaty w imieniu Root CA, rozkładając obciążenie i ryzyko. Zasadniczo to jeżeli chcemy się dowiedzieć czy możemy mu zaufać to wspinamy się w górę (do urzędu który podpisał ten certyfikat) i jeżeli dojdziemy do zaufanego urzędu certyfikacji to ten CA też jest zaufany. W przeciwnym razie nie ufamy temu CA. W skrócie ufamy CA jeżeli:
@@ -75,8 +75,8 @@ Głównym celem PKI jest zapewnienie zaufania w środowisku cyfrowym poprzez:
   - Dodatkowo odbiorca może zweryfikować że dokument pochodzi od nadawcy i że nikt go nie naruszył za pomocą podpisu i klucza publicznego nadawcy dokumentu.
 + *Sprawdzanie ważności certyfikatu*:
   - Przy każdej operacji wymagającej zaufania (np połączenia HTTPS) certyfikat jest sprawdzany pod kątem ważności:
-      - CLR: czyli czy nie znajduje się na liście certyfikatów anulowanych,
-      - OCSP: protokołu który pozwala na szybkie sprawdzenie statusu certyfikatu.
+    - CRL: czyli czy nie znajduje się na liście certyfikatów anulowanych,
+    - OCSP: protokołu który pozwala na szybkie sprawdzenie statusu certyfikatu.
 + *Zarządzanie cyklem życia certyfikatów*:
   - Certyfikaty mają określony czas ważności (np jeden rok) i po jego upływie trzeba ubiegać się o nowy,
   - Jeżeli certyfikat zostanie skompromitowany lub po prostu niepotrzebny, użytkownik zgłasza to CA który wówczas ten certyfikat anuluje.
@@ -87,44 +87,44 @@ Głównym celem PKI jest zapewnienie zaufania w środowisku cyfrowym poprzez:
 
 Weryfikacja certyfikatów w trakcie nawiązywania bezpiecznego połączenia (np. HTTPS) odbywa się poprzez sprawdzenie ścieżki certyfikatów. Polega to na weryfikacji, czy dany certyfikat jest zaufany na podstawie tzw. *łańcucha certyfikatów (certificate chain)*.
 
-*Łańcuch certyfikatów (certificate chain)* 
+*Łańcuch certyfikatów (certificate chain)*
 
 - Każdy certyfikat cyfrowy (np. dla strony internetowej) jest podpisany przez wyższy poziom certyfikatu, zwany certyfikatem pośrednim (intermediate CA).
 - Certyfikaty pośrednie są z kolei podpisywane przez główny certyfikat *root-CA* (Certificate Authority), który jest self-signed (podpisuje sam siebie).
 - Komputer lub przeglądarka przechowuje listę *zaufanych certyfikatów root-CA*. Jeśli certyfikat root-CA znajduje się w tej liście, to wszystkie certyfikaty poniżej w łańcuchu są automatycznie uznawane za zaufane, o ile:
-    1. Łańcuch jest kompletny i nieprzerwany.
-    2. Certyfikaty w łańcuchu nie zostały unieważnione.
+  1. Łańcuch jest kompletny i nieprzerwany.
+  2. Certyfikaty w łańcuchu nie zostały unieważnione.
 
 *Jak to działa?*
 
 - Po połączeniu się np. ze stroną internetową przeglądarka pobiera certyfikat serwera (SSL/TLS) i wszystkie certyfikaty pośrednie, które serwer udostępnia.
 - Przeglądarka sprawdza, czy:
-    - Certyfikat serwera jest podpisany przez jeden z certyfikatów pośrednich.
-    - Certyfikaty pośrednie prowadzą do znanego certyfikatu root-CA (znajdującego się w zaufanym magazynie certyfikatów przeglądarki/systemu).
+  - Certyfikat serwera jest podpisany przez jeden z certyfikatów pośrednich.
+  - Certyfikaty pośrednie prowadzą do znanego certyfikatu root-CA (znajdującego się w zaufanym magazynie certyfikatów przeglądarki/systemu).
 - Decyzja o zaufaniu:
-    - Jeśli łańcuch kończy się certyfikatem root-CA, który jest znany i zaufany, połączenie zostaje zaakceptowane.
-    - Jeśli w łańcuchu brakuje któregoś certyfikatu lub root-CA nie znajduje się w liście zaufanych, połączenie jest oznaczane jako niezaufane.
+  - Jeśli łańcuch kończy się certyfikatem root-CA, który jest znany i zaufany, połączenie zostaje zaakceptowane.
+  - Jeśli w łańcuchu brakuje któregoś certyfikatu lub root-CA nie znajduje się w liście zaufanych, połączenie jest oznaczane jako niezaufane.
 
 *Działanie podpisu cyfrowego*
 
 *Proces podpisywania:*
 
 1. *Tworzenie skrótu (hasha)*:
-    - Z dokumentu generowany jest *skrócony odcisk (hash)* za pomocą funkcji skrótu (np. SHA-256).
-    - Skrót to unikalny ciąg znaków reprezentujący dokument (nawet mała zmiana w dokumencie zmieni skrót).
+  - Z dokumentu generowany jest *skrócony odcisk (hash)* za pomocą funkcji skrótu (np. SHA-256).
+  - Skrót to unikalny ciąg znaków reprezentujący dokument (nawet mała zmiana w dokumencie zmieni skrót).
 2. *Szyfrowanie skrótu*:
-    - Skrót jest szyfrowany za pomocą *klucza prywatnego* nadawcy, tworząc podpis cyfrowy.
-    - Szyfrowany skrót jest dołączany do dokumentu.
+  - Skrót jest szyfrowany za pomocą *klucza prywatnego* nadawcy, tworząc podpis cyfrowy.
+  - Szyfrowany skrót jest dołączany do dokumentu.
 
 *Proces weryfikacji:*
 
 1. Odbiorca otrzymuje dokument z podpisem cyfrowym.
 2. Odbiorca:
-    - Generuje nowy skrót z otrzymanego dokumentu (za pomocą tej samej funkcji skrótu),
-    - Odszyfrowuje podpis (oryginalny skrót) za pomocą *klucza publicznego* nadawcy.
+  - Generuje nowy skrót z otrzymanego dokumentu (za pomocą tej samej funkcji skrótu),
+  - Odszyfrowuje podpis (oryginalny skrót) za pomocą *klucza publicznego* nadawcy.
 3. Porównuje oba skróty:
-    - Jeśli są identyczne, dokument jest autentyczny i niezmieniony,
-    - Jeśli różnią się, dokument został zmodyfikowany lub podpis jest nieprawidłowy.
+  - Jeśli są identyczne, dokument jest autentyczny i niezmieniony,
+  - Jeśli różnią się, dokument został zmodyfikowany lub podpis jest nieprawidłowy.
 
 *Dlaczego niektóre certyfikaty są droższe niż inne?*
 
