@@ -24,8 +24,12 @@ Wybrane mechanizmy kolejkowania pakietów:
 
 W przypadku pakietów, które nie zmieszczą się w kolejce, można stosować różne strategie odrzucania:
 - *Drop Tail* - odrzucanie pakietów, gdy kolejka jest pełna;
-- *AQM (Active Queue Management)* - aktywne zarządzanie kolejkami, które pozwala na ograniczenie opóźnień pakietów poprzez redukcję wielkości kolejki;
-- *RED (Random Early Detection)* - wczesne losowe odrzucanie pakietów zanim bufor się zapełni. Działa jak filtr dolnoprzepustowy, tłumiąc wybuchy wielkości kolejki. Chwilowe przeciążenia są rozwiązywane poprzez zwiększenie długości kolejek, a długotrwałe przeciążenia poprzez powiadamianie losowych połączeń o przeciążeniu (ECN lub odrzucanie losowych pakietów).
+- *AQM (Active Queue Management)* - aktywne zarządzanie kolejkami, które pozwala na ograniczenie opóźnień pakietów poprzez redukcję wielkości kolejki; AQM to nie jeden konkretny algorytm, ale cała rodzina technik stosowanych w ruterach i przełącznikach sieciowych. Jego głównym celem jest rozwiązanie problemu "Bufferbloat" (nadmiernego buforowania), który powoduje ogromne opóźnienia;
+- *RED (Random Early Detection)* - RED to najsłynniejszy i klasyczny algorytm z rodziny AQM. Algorytm RED nie patrzy na chwilową długość kolejki, lecz oblicza średnią kroczącą. Ma trzy strefy działania:
+  - Strefa normalna - gdy średnia długość kolejki jest poniżej progu minimalnego, pakiety są przyjmowane bez odrzucania.
+  - Strefa ostrzegawcza - gdy średnia długość kolejki jest między progiem minimalnym a maksymalnym, pakiety są odrzucane z pewnym prawdopodobieństwem, które rośnie wraz ze wzrostem długości kolejki.
+  - Strefa przeciążenia - gdy średnia długość kolejki przekracza próg maksymalny, wszystkie nadchodzące pakiety są odrzucane.
+- *ECN (Explicit Congestion Notification)* - rozszerzenie do IP pozwalające na bezpośrednią sygnalizację wystąpienia przeciążenia. Zamiast odrzucania pakietów (jak w tradycyjnym TCP/IP), ECN ustawia znacznik w nagłówku IP informując o przeciążeniu, dzięki czemu pakiety nie muszą być odrzucane by uzyskać zachowanie kontroli przeciążenia.
 
 === Zarządzanie pasmem
 Zarządzanie pasmem to proces kontrolowania i optymalizacji dostępnej przepustowości sieci, aby zapewnić sprawiedliwy podział zasobów.
