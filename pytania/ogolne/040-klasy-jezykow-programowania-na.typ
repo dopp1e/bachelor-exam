@@ -2,7 +2,7 @@
 #import "../../res/question.typ": question
 
 #show: question.with(
-  q: "Klasy języków programowania na wybranych przykładach."
+  q: "Klasy języków programowania na wybranych przykładach.",
 )
 
 === Klasy według generacji języka
@@ -22,42 +22,37 @@ Generacja języka, czyli poziom abstrakcji i zaawansowania technologicznego:
     ),
     stroke: (x, y) => (
       bottom: 0.5pt + gray.lighten(50%),
-      top: if y == 0 { 1pt + black } else { 0pt }
+      top: if y == 0 { 1pt + black } else { 0pt },
     ),
     fill: (col, row) => (
       if row == 0 { rgb("E0E0E0") } // Darker header
       else if calc.even(row) { rgb("F5F5F5") } // Zebra striping
       else { white }
     ),
-  
-    table.header(
-      [*Generacja*], [*Opis*], [*Przykłady*], [*Zastosowanie*]
-    ),
 
-    [*I*], 
-    [Kod maszynowy wykonywany przez procesor. Bardzo mała przenośność.], 
-    [Kod binarny], 
+    table.header([*Generacja*], [*Opis*], [*Przykłady*], [*Zastosowanie*]),
+
+    [*I*],
+    [Kod maszynowy wykonywany przez procesor. Bardzo mała przenośność.],
+    [Kod binarny],
     [Systemy wbudowane \ Układy scalone],
 
-    [*II*], 
-    [Asembler, gdzie symbole i instrukcje (mnemoniki) zastępują kod maszynowy. Kod musi być podany asemblacji, żeby był uruchomiony przez procesor ($arrow$ przekompilowany w kod maszynowy).], 
-    [Asembler], 
+    [*II*],
+    [Asembler, gdzie symbole i instrukcje (mnemoniki) zastępują kod maszynowy. Kod musi być podany asemblacji, żeby był uruchomiony przez procesor ($arrow$ przekompilowany w kod maszynowy).],
+    [Asembler],
     [Optymalizowanie programów pod kątem wydajności \ Sterowniki],
 
-    [*III*], 
-    [Języki wysokopoziomowe, zbliżone do języka naturalnego. \ *Języki imperatywne.*], 
-    [C, Java, Python], 
+    [*III*],
+    [Języki wysokopoziomowe, zbliżone do języka naturalnego. \ *Języki imperatywne.*],
+    [C, Java, Python],
     [Aplikacje webowe, desktopowe itp.],
 
-    [*IV*], 
-    [Języki stworzone do konkretnych celów z jeszcze większym poziomem abstrakcji. \ *Języki deklaratywne.*], 
-    [SQL, HTML, CSS], 
+    [*IV*],
+    [Języki stworzone do konkretnych celów z jeszcze większym poziomem abstrakcji. \ *Języki deklaratywne.*],
+    [SQL, HTML, CSS],
     [Bazy danych],
 
-    [*V*], 
-    [Zorientowane na logikę i sztuczną inteligencję. Deklaratywne.], 
-    [Prolog, Mercury], 
-    [-],
+    [*V*], [Zorientowane na logikę i sztuczną inteligencję. Deklaratywne.], [Prolog, Mercury], [-],
   )
 }
 
@@ -80,9 +75,9 @@ Paradygmat programowania, to zbiór zasad które definiują sposób tworzenia i 
 
 - *Strukturalne* - kod dzielony na logiczne bloki, moduły i procedury. Zwiększa to jego czytelność i ułatwia zarządzanie. Ten paradygmat wprowadza instrukcje `if`, `switch`, `for`, `while` itd. Skupia się na tym, aby unikać używania instrukcji `goto`. *W programie można, ale nie trzeba korzystać z funkcji, po prostu wprowadzamy strukturę aby unikać `goto`.* Programowanie strukturalne jest nadzbiorem programowania proceduralnego. Przykładowe języki: C, Pascal.
 - *Proceduralne* - podzbiór programowania strukturalnego. Skupia się na opakowywaniu kodu w procedury (funkcje). Kod który jest zapisany poza funkcjami nie zostanie wykonany. Procedury:
-    - posiadają swoje parametry, których wartości przekazywane są podczas wywołania,
-    - mają swój stan lokalny oraz mogą korzystać z globalnego,
-    - mogą być wywołane z dowolnego miejsca w kodzie (również z siebie samej).
+  - posiadają swoje parametry, których wartości przekazywane są podczas wywołania,
+  - mają swój stan lokalny oraz mogą korzystać z globalnego,
+  - mogą być wywołane z dowolnego miejsca w kodzie (również z siebie samej).
   Przykładowe języki: C, Ada, Fortran.
 - *Obiektowe* - skupienie na organizacji programu w obiekty, aby kod był bardziej modularny, łatwy do utrzymania, rozwoju, i ponownego użycia. Obiekty zawierają dane oraz metody do przetwarzania tych danych. Przykładowe języki: Java, C\#.
 
@@ -93,46 +88,89 @@ Paradygmat programowania, to zbiór zasad które definiują sposób tworzenia i 
     W Haskellu nie można uruchomić funkcji bez użycia monady, ponieważ byłaby to instrukcja dla programu, która zmieniłaby jego stan. Monada opakowuje funkcje, efekty uboczne oraz zmianystanów programu.
   ]
   Cechy języków funkcyjnych to:
-      - nie zachodzi zmiana stanu programu,
-      - nie ma efektów ubocznych (funkcja nie wpływa na program poza swoją funkcją),
-      - koncentruje się głównie na *funkcjach matematycznych*,
-      - funkcje są traktowane jako pierwszorzędne obiekty - są na równi ze zmiennymi, można je przypisywać do zmiennych i przekazywać jako parametr.
+  - nie zachodzi zmiana stanu programu,
+  - nie ma efektów ubocznych (funkcja nie wpływa na program poza swoją funkcją),
+  - koncentruje się głównie na *funkcjach matematycznych*,
+  - funkcje są traktowane jako pierwszorzędne obiekty - są na równi ze zmiennymi, można je przypisywać do zmiennych i przekazywać jako parametr.
   Występuje coś takiego jak *funkcje wyższych rzędów* - funkcje które spełniają jeden z dwóch kryteriów:
-      - przyjmują inne funkcje jako argument
-        ```python
-def apply_function(func, x):
-    return func(x)
+  - przyjmują inne funkcje jako argument
+    ```python
+    def apply_function(func, x):
+        return func(x)
 
-# Funkcja przekazana jako argument
-print(apply_function(lambda x: x ** 2, 5))  # Wynik: 25
-        ```
-      - zwracają funkcję jako wynik
-        ```python
-def multiplier(n):
-    def multiply(x):
-        return x * n
-    return multiply
+    # Funkcja przekazana jako argument
+    print(apply_function(lambda x: x ** 2, 5))  # Wynik: 25
+    ```
+  - zwracają funkcję jako wynik
+    ```python
+    def multiplier(n):
+        def multiply(x):
+            return x * n
+        return multiply
 
-double = multiplier(2)  # Zwrócona funkcja, która mnoży przez 2
-print(double(5))  # Wynik: 10
-        ```
+    double = multiplier(2)  # Zwrócona funkcja, która mnoży przez 2
+    print(double(5))  # Wynik: 10
+    ```
   Przykładowe języki: Haskell (czysto funkcyjny), Lisp (wspiera także paradygmat imperatywny).
 - *Logiczne* - program jest zbudowany z zestawu zależności, a obliczenia są dowodem pewnego twierdzenia w oparciu o te zależności. Programista definiuje fakty, reguły i zapytania, a język programowania sam dedukuje odpowiedzi lub realizuje cel. Programowanie logiczne skupia się na relacjach między danymi. Przykładowe języki: Prolog, Mercury.
 
+=== Klasy ze względu na typowanie
+
+Typowanie odnosi się do sposobu, w jaki język programowania obsługuje i zarządza typami danych. Typowanie można podzielić na:
+- *statyczne* - typy danych są określane w czasie kompilacji. Błędy typów są wykrywane przed uruchomieniem programu. Przykładowe języki: C, C++, Java.
+- *dynamiczne* - typy danych są określane w czasie wykonywania programu. Błędy typów mogą pojawić się podczas działania programu. Przykładowe języki: Python, JavaScript.
+
+Dodatkowo typowanie może być:
+- *silne* - język ściśle egzekwuje reguły typów, zapobiegając niezgodnym operacjom między różnymi typami danych. Przykładowe języki: Java, Python.
+- *słabe* - język pozwala na bardziej elastyczne operacje między różnymi typami danych, często dokonując automatycznych konwersji typów. Przykładowe języki: JavaScript, PHP.
+
 === Możliwe dopytania
 
-- Wg prowadzącego: Java i C\# są na 3 i 4 generacji, ponieważ mają dużo zaawansowanych mechanizmów. (autor nieznany)
-- Wg prowadzącego: Obiektowe nie należą do imperatywnych. (Manus)
-- Wg prowadzącego: Logiczne i funkcyjne nie do końca podpadają pod deklaratywne. (Manus)
-- Pytanie o wersję najnowszego C\# lub Javy. (Kuchta)
-- Wymienić wszystkie klasy jakie się zna. (Manus)
-- Do jakiej generacji należy Prolog? (Manus) (odp: 5)
-- Przykłady i do czego służą języki 5 generacji? (Manus)
-- Kiedy występują komunikaty o błędach w językach kompilowanych i interpretowanych? (Szłapczyńska)
-- *Jak już dzieli się na imperatywne i deklaratywne, to kolejne klasy przyporządkować do którejś z tych kategorii. (Szłapczyńska)*
-- Jaką nowość technologiczną w kompilacji JIT wprowadził Microsoft w .NET względem Javy. (Matuszek) (odp: Wersjonowanie kodu pośredniego. Skompilowany kod jest przechowywany w stałym cache'u.)
-- Zwrócić uwage na języki półkompilowane C\# i Java. (Szłapczyńska)
-- Pytanie o języki niskiego i wysokiego poziomu, gdzie jest asembler a gdzie Scratch. (autor nieznany)
-- Czy Scratch jest językiem obiektowym? (autor nieznany) (odp: tak)
-- Jakim rodzajem języka jest SQL? (autor nieznany)
-- Podaj różne paradygmaty programowania. (Daciuk)
++ Wg prowadzącego: Java i C\# są na 3 i 4 generacji, ponieważ mają dużo zaawansowanych mechanizmów. (autor nieznany)
++ Wg prowadzącego: Obiektowe nie należą do imperatywnych. (Manus)
++ Wg prowadzącego: Logiczne i funkcyjne nie do końca podpadają pod deklaratywne. (Manus)
++ Pytanie o wersję najnowszego C\# lub Javy. (Kuchta)
++ Wymienić wszystkie klasy jakie się zna. (Manus)
++ Do jakiej generacji należy Prolog? (Manus)
++ Przykłady i do czego służą języki 5 generacji? (Manus)
++ Kiedy występują komunikaty o błędach w językach kompilowanych i interpretowanych? (Szłapczyńska)
++ *Jak już dzieli się na imperatywne i deklaratywne, to kolejne klasy przyporządkować do którejś z tych kategorii. (Szłapczyńska)*
++ Jaką nowość technologiczną w kompilacji JIT wprowadził Microsoft w .NET względem Javy. (Matuszek)
++ Zwrócić uwage na języki półkompilowane C\# i Java. (Szłapczyńska)
++ Pytanie o języki niskiego i wysokiego poziomu, gdzie jest asembler a gdzie Scratch. (autor nieznany)
++ Czy Scratch jest językiem obiektowym? (autor nieznany)
++ Jakim rodzajem języka jest SQL? (autor nieznany)
++ Podaj różne paradygmaty programowania. (Daciuk)
+
+=== Odpowiedzi na możliwe dopytania
+
++ Wg prowadzącego: Java i C\# są na 3 i 4 generacji, ponieważ mają dużo zaawansowanych mechanizmów. (autor nieznany)
+  - ???
++ Wg prowadzącego: Obiektowe nie należą do imperatywnych. (Manus)
+  - ???
++ Wg prowadzącego: Logiczne i funkcyjne nie do końca podpadają pod deklaratywne. (Manus)
+  - ???
++ Pytanie o wersję najnowszego C\# lub Javy. (Kuchta)
+  - ???
++ Wymienić wszystkie klasy jakie się zna. (Manus)
+  - I, II, III, IV, V generacja; kompilowane, interpretowane, hybrydowe; imperatywne (strukturalne, proceduralne, obiektowe), deklaratywne (funkcyjne, logiczne); statyczne, dynamiczne; silne, słabe.
++ Do jakiej generacji należy Prolog? (Manus)
+  - 5
++ Przykłady i do czego służą języki 5 generacji? (Manus)
+  - Języki 5 generacji są zorientowane na logikę i sztuczną inteligencję. Przykłady to Prolog i Mercury. Służą do rozwiązywania problemów poprzez definiowanie faktów, reguł i zapytań, a język sam dedukuje odpowiedzi lub realizuje cele.
++ Kiedy występują komunikaty o błędach w językach kompilowanych i interpretowanych? (Szłapczyńska)
+  - W językach kompilowanych błędy są wykrywane podczas procesu kompilacji, przed uruchomieniem programu. W językach interpretowanych błędy mogą pojawić się podczas wykonywania programu, gdy interpreter napotyka na problem w kodzie.
++ Jak już dzieli się na imperatywne i deklaratywne, to kolejne klasy przyporządkować do którejś z tych kategorii. (Szłapczyńska)
+  - Imperatywne: strukturalne, proceduralne, obiektowe. Deklaratywne: funkcyjne, logiczne.
++ Jaką nowość technologiczną w kompilacji JIT wprowadził Microsoft w .NET względem Javy. (Matuszek)
+  - Wersjonowanie kodu pośredniego. Skompilowany kod jest przechowywany w stałym cache'u.
++ Zwrócić uwage na języki półkompilowane C\# i Java. (Szłapczyńska)
+  - C\# i Java są językami półkompilowanymi, ponieważ kod źródłowy jest najpierw kompilowany do kodu pośredniego (bytecode w Javie, MSIL w C\#), który jest następnie interpretowany lub kompilowany JIT podczas wykonywania programu.
++ Pytanie o języki niskiego i wysokiego poziomu, gdzie jest asembler a gdzie Scratch. (autor nieznany)
+  - Asembler jest językiem niskiego poziomu, blisko sprzętu. Scratch jest językiem wysokiego poziomu, zaprojektowanym dla początkujących i dzieci, z graficznym interfejsem do tworzenia programów.
++ Czy Scratch jest językiem obiektowym? (autor nieznany)
+  - Tak, Scratch jest językiem obiektowym, ponieważ programy są tworzone poprzez manipulację obiektami (sprite'ami) na scenie, które mają swoje własne właściwości i zachowania.
++ Jakim rodzajem języka jest SQL? (autor nieznany)
+  - SQL jest językiem deklaratywnym, używanym do zarządzania i manipulowania bazami danych poprzez definiowanie zapytań i operacji na danych.
++ Podaj różne paradygmaty programowania. (Daciuk)
+  - Imperatywne (strukturalne, proceduralne, obiektowe), deklaratywne (funkcyjne, logiczne).

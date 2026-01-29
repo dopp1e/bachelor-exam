@@ -1,7 +1,7 @@
 #import "../../res/question.typ": question
 
 #show: question.with(
-  q: "Modele barw w grafice komputerowej."
+  q: "Modele barw w grafice komputerowej.",
 )
 
 === Modele barw
@@ -12,7 +12,7 @@ Różne modele zą stosowane do różnych rzeczy, w zależności od potrzeb. Mod
 ==== Przeznaczenie
 
 Podział biorący pod uwagę przeznaczenie modelu tzn. czy służy on do teoretycznego opisu kolorów i teorii barw,
-czy do faktycznego użycia modelu w celu wyświetlania barw np. na monitorze. 
+czy do faktycznego użycia modelu w celu wyświetlania barw np. na monitorze.
 
 - *Modele teoretyczne* - są to modele ukierunkowane w celu analizy naukowej kolorów. Modele czysto matematyczne,
   które są opracowane w celu zrozumienia jak postrzegane jest światło, kolor i percepcja barw przez ludzkie oko i mózg.
@@ -42,7 +42,7 @@ występować zarówno w modelach teoretycznych jak i technicznych.
 
 - *Modele subtraktywne* - modele, w których uzyskanie barwy polega na zjawisku syntezy subtraktywnej,
   czyli mieszaniu się barw poprzez odejmowania wiązek światła widzialnego różnych długości.
-  Wraz z wzrostem intensywności barw, mieszany kolor dąży do czarnego. 
+  Wraz z wzrostem intensywności barw, mieszany kolor dąży do czarnego.
 
   *Przykłady*: CMY, CMYK
 
@@ -100,7 +100,7 @@ czyli zastosowanie głównie dla fizycznych obiektów
 
 RGB to model addytywny w którym kolory uzyskuje się poprzez addytywne mieszanie ze sobą wiązek światła podstawowych kolorów (RGB). Wzrost intensywności barw prowadzi do uzyskania koloru białego.
 RGB zazwyczaj określa się za pomocą RGB24, czyli zapisu trzech liczb 8-bitowych (2^24=16,777,216 kolorów).
-Kolor w modelu RGB opisuje się poprzez wskazanie, jaka część każdego z kolorów: czerwonego, zielonego i niebieskiego jest zawarta. Kolor wyraża się jako 
+Kolor w modelu RGB opisuje się poprzez wskazanie, jaka część każdego z kolorów: czerwonego, zielonego i niebieskiego jest zawarta. Kolor wyraża się jako
 trójkę RGB (r, g, b), której każdy składnik może zmieniać się od zera do określonej wartości maksymalnej. Jeśli wszystkie składniki mają wartość
 zero, wynikiem jest czerń; jeśli wszystkie mają wartość maksymalną, wynikiem jest najjaśniejsza biel, jaką można przedstawić.
 Wartość RGB można przedstawić liczbami zmiennoprzecinkowymi, dziesiętnie, procentowo lub jako liczbę szesnastkową.
@@ -157,7 +157,7 @@ HSV/HSB i HSL przedstawia się za pomocą walca, gdzie V/B lub L to wysokość, 
 
 Są to modele które powstały na potrzeby systemów telewizyjnych szczególnie w kontekście przesyłania obrazu.
 Oddzielają one informację o kolorze od jasności która jest dla nas ważniejsza ponieważ nosi więcej informacji o obrazie.
-Ludzkie oko jest bardziej czułe na jasność (światło) niż na kolory. 
+Ludzkie oko jest bardziej czułe na jasność (światło) niż na kolory.
 
 YUV składa się z:
 
@@ -169,8 +169,8 @@ V - składowa chrominancji dla różnic czerwieni.
 
 U i V to razem chrominancja.
 
-Jest to model stosowany jako standard europejski PAL i był kompatybilny zarówno z telewizorami z kolorem, jak i czarnobiałymi (odbierały tylko kanał Y). 
-YIQ jest odobny do YUV ale stosowany jako standard amerykański NTSC. 
+Jest to model stosowany jako standard europejski PAL i był kompatybilny zarówno z telewizorami z kolorem, jak i czarnobiałymi (odbierały tylko kanał Y).
+YIQ jest odobny do YUV ale stosowany jako standard amerykański NTSC.
 
 *Zastosowanie*: Telewizja analogowa
 

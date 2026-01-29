@@ -2,10 +2,10 @@
 #import "../../res/question.typ": question
 
 #show: question.with(
-  q: "Zasady współpracy aplikacji rozproszonych z bazami danych."
+  q: "Zasady współpracy aplikacji rozproszonych z bazami danych.",
 )
 
-/ Aplikacje rozproszone: Systemy które działają na wielu komputerach (węzłach) lub w chmurze, które mogą wykonywać tą samą lub różne funkcje. Każdy z węzłów może potrzebować dostępu do bazy danych co wymaga specjalnej komunikacji między węzłami a bazą tak aby zapewnić spójność danych, wydajność dostępu i skalowalność systemu.  
+/ Aplikacje rozproszone: Systemy które działają na wielu komputerach (węzłach) lub w chmurze, które mogą wykonywać tą samą lub różne funkcje. Każdy z węzłów może potrzebować dostępu do bazy danych co wymaga specjalnej komunikacji między węzłami a bazą tak aby zapewnić spójność danych, wydajność dostępu i skalowalność systemu.
 
 W kontekście komunikacji wyzwaniem w zaprojektowaniu tej komunikacji jest zapewnienie trzech głównych cech, opisanych w CAP Theorem.
 
@@ -36,25 +36,25 @@ Jest to kompromis w systemach, gdzie priorytetem jest dostępność i tolerancja
   Stosując ACID zapewniamy C i P z CAP.
 ]
 
-1. *A* - *Atomicity*. Transakcja, czyli sekwencja działań jest wykonywana w sposób niepodzielny. Albo się wykonuje w całości albo wcale. 
+1. *A* - *Atomicity*. Transakcja, czyli sekwencja działań jest wykonywana w sposób niepodzielny. Albo się wykonuje w całości albo wcale.
   #info[
-    *Przykład*: W przelewie bankowym kwota musi być odjęta z konta A i dodana do konta B w jednym kroku. Jeśli jedna z operacji się nie powiedzie, cała transakcja jest anulowana. 
+    *Przykład*: W przelewie bankowym kwota musi być odjęta z konta A i dodana do konta B w jednym kroku. Jeśli jedna z operacji się nie powiedzie, cała transakcja jest anulowana.
   ]
-2. *C* - *Consistency*. Spójność danych w znaczeniu przekształcania danych z jednego prawidłowego stanu do innego prawidłowego stanu. 
+2. *C* - *Consistency*. Spójność danych w znaczeniu przekształcania danych z jednego prawidłowego stanu do innego prawidłowego stanu.
   #info[
-  *Przykład*: Kiedy przelewamy pieniądze z konta A do B to musimy:
-  - odjąć kwotę z konta A,
-  - dodać tą kwotę do konta B.
-  Jeżeli po pierwszej operacji byśmy przerwali, to byśmy doprowadzili dane do stanu nieprawidłowego (niespójnego) ponieważ nie możemy pozwolić na zniknięcie pieniędzy w systemie.
+    *Przykład*: Kiedy przelewamy pieniądze z konta A do B to musimy:
+    - odjąć kwotę z konta A,
+    - dodać tą kwotę do konta B.
+    Jeżeli po pierwszej operacji byśmy przerwali, to byśmy doprowadzili dane do stanu nieprawidłowego (niespójnego) ponieważ nie możemy pozwolić na zniknięcie pieniędzy w systemie.
   ]
-    
-3. *I* - *Isolation*. Transakcje wykonywane równocześnie nie wpływają na siebie nawzajem. Transakcje nie widzą swoich zmian dopóki nie wykonają się w pełni. Każda akcja działa tak jakby była jedyną w tym momencie.   
+
+3. *I* - *Isolation*. Transakcje wykonywane równocześnie nie wpływają na siebie nawzajem. Transakcje nie widzą swoich zmian dopóki nie wykonają się w pełni. Każda akcja działa tak jakby była jedyną w tym momencie.
   #info[
     W DBMSach, poziom izolacji transakcji definuje stopień w którym operacje jednej transakcji są odizolowane od operacji innych równocześnie wykonujących się transakcji. Czyli w skrócie definiuje kiedy i jak zmiany jednej transakcji są widoczne dla innych transakcji. Poziomy Izolacji sa wyjaśnione niżej.
   ]
-    
-4. *D* - *Durability*. Po zakóczeniu transakcji zmiany są trwałe, nawet w razie awarii. 
-    
+
+4. *D* - *Durability*. Po zakóczeniu transakcji zmiany są trwałe, nawet w razie awarii.
+
   #info[
     Przykład: Po zapisaniu przelewu kwota zostaje na nowym koncie nawet po ewentualnym restarcie systemu.
   ]
@@ -73,7 +73,7 @@ W związku z istnieniem zjawisk opisanych poniżej, w bazach SQL zdefiniowano 4 
 4. *Serializable* - Najwyższy poziom izolacji, w którym transakcje są wykonywane jedna po drugiej, jakby były szeregowane. Zapobiega wszystkim trzem zjawiskom: brudnym odczytom, niepowtarzalnym odczytom i fantomowym odczytom.
 
 #figure(
-  image("../../obrazki/db-izolacje.webp", width: 100%)
+  image("../../obrazki/db-izolacje.webp", width: 100%),
 )
 
 *BASE*
@@ -88,13 +88,34 @@ W związku z istnieniem zjawisk opisanych poniżej, w bazach SQL zdefiniowano 4 
 
 === Strategie zarządzania awariami
 
-*Fail-Fast*
+==== Fail-Fast
+Strategia *Fail-Fast* polega na jak najszybszym wykrywaniu i zgłaszaniu błędów, aby uniknąć ich dalszej propagacji w systemie. Zamiast próbować kontynuować działanie na błędnych danych, system natychmiast przerywa operację.
 
-Strategia Fail-Fast polega na jak najszybszym wykrywaniu i zgłaszaniu błędów aby uniknąć propagacji błędu.
+*Przykłady:*
+- *Używanie wyjątków:* Gdy metoda napotka problem (np. `InvalidOperationException`), rzuca wyjątek wykonawczy, który musi zostać obsłużony przez komponent nadrzędny.
+- *Walidacja danych wejściowych:* Jeśli użytkownik wprowadzi nieprawidłowe dane, system natychmiast zwraca błąd, nie obciążając dalszych warstw logiki biznesowej.
 
-Przykładowe użycie strategii fail-fast:
-- Używanie wyjątków (throw i catch). Gdy metoda napotka problem (np. invalid operation exception), rzuca runtime exception i jego obsługa jest wykonywana przez komponent nadrzędny w bloku catch,
-- Walidacja danych wejściowych. Jeśli użytkownik wprowadzi nieprawidłowe dane, natychmiast zwracany jest błąd zamiast kontynuowania przetwarzania.
+==== Fail-Safe
+Strategia *Fail-Safe* ma na celu utrzymanie działania systemu w bezpiecznym stanie, nawet jeśli wystąpi awaria. Zamiast całkowitego zatrzymania, system przechodzi w tryb o ograniczonej funkcjonalności, który chroni użytkownika i zasoby.
+
+*Przykłady:*
+- *Systemy krytyczne:* W przypadku awarii sterownika windy, hamulce zaciskają się automatycznie (stan bezpieczny).
+- *Interfejsy użytkownika:* Jeśli usługa rekomendacji w sklepie internetowym padnie, strona wyświetla domyślną listę produktów zamiast zwracać błąd 500.
+
+==== Fail-Silent
+Strategia *Fail-Silent* polega na tym, że w przypadku wystąpienia błędu, system (lub jego podzespół) po prostu przestaje dostarczać jakiekolwiek dane wyjściowe. Nie wysyła on błędnych informacji, które mogłyby zmylić inne komponenty.
+
+*Przykłady:*
+- *Systemy rozproszone:* Węzeł klastra, który wykryje niespójność swoich danych, przestaje odpowiadać na zapytania, aby nie rozprzestrzeniać dezinformacji.
+- *Czujniki:* Sensor temperatury, który ulegnie uszkodzeniu, przestaje wysyłać sygnał, co dla systemu sterującego jest jasnym sygnałem do zignorowania tego źródła.
+
+
+==== Failover
+Strategia *Failover* polega na automatycznym przełączeniu się na zasób zapasowy (redundantny) w momencie wykrycia awarii komponentu głównego. Jest to kluczowy element systemów o wysokiej dostępności (High Availability).
+
+*Przykłady:*
+- *Bazy danych:* Jeśli główny serwer bazy danych ulegnie awarii, zapasowa kopia (Replica) przejmuje rolę serwera głównego w ciągu kilku sekund.
+- *Load Balancer:* Gdy jeden z serwerów aplikacji przestaje odpowiadać, ruch jest automatycznie przekierowywany na pozostałe sprawne maszyny.
 
 === Mechanizmy wykorzystywane przy awarii
 
@@ -114,11 +135,11 @@ Przykładem jest Exponential Backoff, gdzie czas między próbami rośnie wykła
 
 Mechanizm polegający na tym że wielokrotne wykonanie tej samej operacji przyniesie ten sam efekt co jej pojedyncze wykonanie.
 Przykładowo, call GET jest idempotentny ponieważ każde jego wywołanie nie zmienia stanu systemu.
-W klasycznej realizacji REST API, operacja POST nie jest idempotentna ponieważ każde jej wywołanie ma jedynie zapewnić przeprocesowanie danych (np. utworzenie nowego zasobu) @fieldingHypertextTransferProtocol2014. 
+W klasycznej realizacji REST API, operacja POST nie jest idempotentna ponieważ każde jej wywołanie ma jedynie zapewnić przeprocesowanie danych (np. utworzenie nowego zasobu) @fieldingHypertextTransferProtocol2014.
 Dobrą praktyką jest implementowanie PUTa jako idempotentnego, tak że wielokrotne wywołanie PUT z tymi samymi danymi nadpisze zasób do tego samego stanu.
 Nie jest to jednak regułą i zależy od konkretnej implementacji API.
 
 === Możliwe dopytania
 
 - Jakie są kompromisy podczas realizacji CAP theorem - CA, CP, AP? (Manus)
-- Zaprojektuj system rozproszony i określ jego wyzwania. (Czarnul) 
+- Zaprojektuj system rozproszony i określ jego wyzwania. (Czarnul)
