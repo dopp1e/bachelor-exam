@@ -89,7 +89,30 @@ Dzięki Duck Typing polimorfizm w Pythonie jest dynamiczny. Pozwala na traktowan
 
 ==== Dziedziczenie
 
-Python wspiera wielokrotne dziedziczenie
+Python wspiera wielokrotne dziedziczenie.
+
+=== C++
+
+C++ jest językiem wieloparadygmatowym, wspierającym programowanie proceduralne, obiektowe i generyczne. W przeciwieństwie do Javy (gdzie wszystko musi być w klasie), w C++ można pisać kod czysto proceduralny.
+
+==== Abstrakcja
+
+C++ realizuje abstrakcję poprzez klasy abstrakcyjne zawierające metody czysto wirtualne (pure virtual methods), oznaczane przez `= 0`.
+W C++ często stosuje się podział na pliki nagłówkowe (`.h`/`.hpp`) zawierające deklaracje interfejsu klasy oraz pliki źródłowe (`.cpp`) z implementacją.
+
+==== Enkapsulacja
+
+Dostępne są modyfikatory `private`, `protected` i `public`. Działają one blokowo (sekcjami), a nie dla każdego pola osobno.
+C++ posiada mechanizm przyjaźni (`friend`). Klasa lub funkcja zaprzyjaźniona ma dostęp do prywatnych pól klasy, co jest celowym wyłomem w enkapsulacji niedostępnym w Javie.
+
+==== Polimorfizm
+
+Polimorfizm dynamiczny działa tylko dla metod oznaczonych jako `virtual` i tylko gdy operujemy na obiektach przez wskaźnik lub referencję. Metody niewirtualne są wiązane statycznie (w czasie kompilacji).
+C++ posiada bardzo rozbudowany polimorfizm statyczny oparty na szablonach (templates).
+
+==== Dziedziczenie
+
+C++ wspiera wielokrotne dziedziczenie, co jest rzadkością w nowoczesnych językach (Java/C\# na to nie pozwalają). Niesie to ze sobą ryzyko tzw. "problemu diamentowego", który w C++ rozwiązuje się poprzez dziedziczenie wirtualne (`virtual inheritance`).
 
 === Możliwe dopytania
 
