@@ -1,7 +1,7 @@
 #import "../../res/question.typ": question
 
 #show: question.with(
-  q: "Realizacja podstawowych funkcji bezpieczeństwa dla płaszczyzny sygnalizacji i transmisji danych w usługach multimedialnych."
+  q: "Realizacja podstawowych funkcji bezpieczeństwa dla płaszczyzny sygnalizacji i transmisji danych w usługach multimedialnych.",
 )
 
 
@@ -11,7 +11,7 @@ System telekomunikacyjny bazujący na IP jest co najwyżej tak bezpieczny jak si
 - *integralność danych* - zapewnienie, że dane nie zostały zmienione lub uszkodzone podczas transmisji, użycie jakiegoś mechanizmu kontroli integralności (np. sumy kontrolne, hashe kryptograficzne).
 - *poufność danych* - zapewnienie, że dane są dostępne tylko dla uprawnionych użytkowników, użycie szyfrowania (np. AES, TLS).
 - *autentyczność* - zapewnienie, że tożsamość użytkownika lub urządzenia jest prawidłowa, użycie mechanizmów uwierzytelniania (np. hasła, certyfikaty cyfrowe).
-- *niezaprzeczalność* - integralność + autentyczność, zapewnienie, że nadawca nie może zaprzeczyć wysłaniu danych, a odbiorca nie może zaprzeczyć ich otrzymaniu.
+- *niezaprzeczalność* - integralność + autentyczność, zapewnienie, że podmiot nie może wyprzeć się wykonania określonej czynności. Gwarantuje, że nadawca nie może zaprzeczyć, że wysłał wiadomość, a odbiorca nie może zaprzeczyć, że ją otrzymał. Użycie podpisów cyfrowych (np. RSA, DSA).
 
 === Płaszczyzna sygnalizacji
 Płaszczyzna sygnalizacji w usługach multimedialnych opiera się na protokołach takich jak *SIP (Session Initiation Protocol)* i *H.323* (na wykładzie był głównie SIP, więc na nim się skupimy). Aby zapewnić bezpieczeństwo w SIP stosuje się *SIPS (SIP Secure)*, który wykorzystuje protokół *TLS (Transport Layer Security)*. SIPS zapewnia:
